@@ -1,0 +1,205 @@
+[
+  {
+    "command": "find_all_under",
+    "keys": [
+      "ctrl+shift+l"
+    ]
+  },
+  {
+    "command": "find_all_under",
+    "keys": [
+      "ctrl+f2"
+    ]
+  },
+  {
+    "command": "split_selection_into_lines",
+    "keys": [
+      "alt+shift+i"
+    ]
+  },
+  {
+    "caption": "Reveal in sidebar",
+    "command": "reveal_in_side_bar",
+    "keys": [
+      "ctrl+shift+b"
+    ]
+  },
+  {
+    "command": "copy_path",
+    "keys": [
+      "ctrl+alt+c"
+    ]
+  },
+  {
+    "command": "toggle_side_bar",
+    "keys": [
+      "ctrl+b"
+    ]
+  },
+  {
+    "command": "swap_line_up",
+    "keys": [
+      "alt+up"
+    ]
+  },
+  {
+    "caption": "Reveal in sidebar",
+    "command": "reveal_in_side_bar",
+    "keys": [
+      "alt+b"
+    ]
+  },
+  {
+    "command": "swap_line_down",
+    "context": [
+      {
+        "key": "setting.command_mode",
+        "operand": true
+      }
+    ],
+    "keys": [
+      ",",
+      "j"
+    ]
+  },
+  {
+    "command": "swap_line_down",
+    "keys": [
+      "alt+down"
+    ]
+  },
+  {
+    "command": "js_prettier",
+    "keys": [
+      "ctrl+shift+i"
+    ]
+  },
+  {
+    "command": "redo",
+    "keys": [
+      "ctrl+y"
+    ]
+  },
+  {
+    "args": {
+      "block": false
+    },
+    "command": "toggle_comment",
+    "keys": [
+      "ctrl+k",
+      "ctrl+c"
+    ]
+  },
+  {
+    "args": {
+      "cwd": "${file_path:${folder}}"
+    },
+    "command": "toggle_terminus_panel",
+    "keys": [
+      "ctrl+t"
+    ]
+  },
+  {
+    "command": "prompt_open_folder",
+    "keys": [
+      "ctrl+shift+o"
+    ]
+  },
+  {
+    "command": "exit_insert_mode",
+    "context": [
+      {
+        "key": "setting.command_mode",
+        "operand": false
+      },
+      {
+        "key": "setting.is_widget",
+        "operand": false
+      }
+    ],
+    "keys": [
+      "j",
+      "j"
+    ]
+  },
+  {
+    "args": {
+      "block": false
+    },
+    "command": "toggle_comment",
+    "keys": [
+      "ctrl+/"
+    ]
+  },
+  {
+    "args": {
+      "block": true
+    },
+    "command": "toggle_comment",
+    "keys": [
+      "ctrl+shift+/"
+    ]
+  },
+  {
+    "command": "unfold_all",
+    "keys": [
+      "ctrl+k",
+      "ctrl+j"
+    ]
+  },
+  {
+    "args": {
+      "default": "\t",
+      "mini": true
+    },
+    "command": "auto_complete",
+    "context": [
+      {
+        "key": "auto_complete_visible",
+        "operand": true
+      }
+    ],
+    "keys": [
+      "tab"
+    ]
+  },
+  {
+    "command": "fold",
+    "keys": [
+      "ctrl+k",
+      "ctrl+l"
+    ]
+  },
+  {
+    "args": {
+      "base_file": "${packages}/Default/Preferences.sublime-settings",
+      "default": "// Settings in here override those in \"Default/Preferences.sublime-settings\",\n// and are overridden in turn by syntax-specific settings.\n{\n\t$0\n}\n"
+    },
+    "command": "edit_settings",
+    "keys": [
+      "ctrl+,"
+    ]
+  },
+  {
+    "args": {
+      "base_file": "${packages}/Default/Preferences.sublime-settings/Default (Linux).sublime-keymap"
+    },
+    "command": "edit_shortcuts",
+    "keys": [
+      "ctrl+k",
+      "ctrl+s"
+    ]
+  },
+  {
+    "command": "jump_back",
+    "keys": [
+      "ctrl+shift+left"
+    ]
+  },
+  {
+    "command": "jump_forward",
+    "keys": [
+      "ctrl+shift+right"
+    ]
+  }
+]
