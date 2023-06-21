@@ -1,0 +1,58 @@
+#!/bin/zsh
+
+set -o histexpand
+
+# setopt CORRECT               # auto correct mistakes
+setopt ALWAYS_TO_END          # When completing from the middle of a word, move the cursor to the end of the word
+setopt APPEND_HISTORY         # Allow multiple terminal sessions to all append to one zsh command history
+setopt AUTOCD                 # change directory just by typing its name
+setopt AUTO_LIST              # Automatically list choices on an ambiguous completion.
+setopt AUTO_NAME_DIRS         # Any parameter that is set to the absolute name of a directory immediately becomes a name for that directory
+setopt AUTO_PARAM_SLASH       # If a parameter is completed whose content is the name of a directory, then add a trailing slash instead of a space.
+setopt AUTO_REMOVE_SLASH      # When the last character resulting from a completion is a slash and the next character typed is a word delimiter, a slash, or a character that ends a command (such as a semicolon or an ampersand), remove the slash.
+setopt CHASE_LINKS            # Resolve symbolic links to their true values when changing directory. This also has the effect of CHASE_DOTS, i.e. a ‘..’ path segment will be treated as referring to the physical parent, even if the preceding path segment is a symbolic link.
+setopt CHECK_JOBS             # Report the status of background and suspended jobs before exiting a shell with job control; a second attempt to exit the shell will succeed. NO_CHECK_JOBS is best used only in combination with NO_HUP, else such jobs will be killed automatically.
+setopt COMPLETE_ALIASES       # Prevents aliases on the command line from being internally substituted before completion is attempted. The effect is to make the alias a distinct command for completion purposes.
+setopt COMPLETE_IN_WORD       # If unset, the cursor is set to the end of the word if completion is started. Otherwise it stays there and completion is done from both ends.
+setopt EXTENDED_GLOB          # Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation, etc. (An initial unquoted ‘~’ always produces named directory expansion.)
+setopt EXTENDED_HISTORY       # Save each command’s beginning timestamp (in seconds since the epoch) and the duration (in seconds) to the history file.
+setopt GLOB_COMPLETE          # When the current word has a glob pattern, do not insert all the words resulting from the expansion but generate matches as for completion and cycle through them like menu_complete. the matches are generated as if a ‘*’ was added to the end of the word, or inserted at the cursor when complete_in_word is set. this actually uses pattern matching, not globbing, so it works not only for files but for any completion, such as options, user names, etc.  note that when the pattern matcher is used, matching control (for example, case-insensitive or anchored matching) cannot be used. this limitation only applies when the current word contains a pattern; simply turning on the glob_complete option does not have this effect.
+setopt HASH_LIST_ALL
+setopt HIST_EXPIRE_DUPS_FIRST # When trimming history, lose oldest duplicates first
+setopt HIST_FIND_NO_DUPS      # When searching history don't display results already cycled through twice
+setopt HIST_IGNORE_DUPS       # Do not write events to history that are duplicates of previous events
+setopt HIST_IGNORE_SPACE      # Remove command line from history list when first character on the line is a space
+setopt HIST_REDUCE_BLANKS     # Remove extra blanks from each command line being added to history
+setopt HIST_VERIFY            # Whenever the user enters a line with history expansion, don’t execute the line directly; instead, perform history expansion and reload the line into the editing buffer.
+setopt HUP
+setopt INC_APPEND_HISTORY     # Add comamnds as they are typed, don't wait until shell exit
+setopt INTERACTIVECOMMENTS    # allow comments in interactive mode
+setopt LONG_LIST_JOBS         # Print job notifications in the long format by default.
+setopt MAGICEQUALSUBST        # enable filename expansion for arguments of the form 'anything=expression'
+setopt MENU_COMPLETE          # On an ambiguous completion, instead of listing possibilities or beeping, insert the first match immediately. Then when completion is requested again, remove the first match and insert the second match, etc. When there are no more matches, go back to the first one again. reverse-menu-complete may be used to loop through the list in the other direction. This option overrides AUTO_MENU
+setopt MULTIOS                # Perform implicit tees or cats when multiple redirections are attempted
+setopt NOBEEP
+setopt NONOMATCH              # hide error message if there is no match for the pattern
+setopt NOTIFY                 # report the status of background jobs immediately
+setopt NO_CLOBBER
+setopt NUMERICGLOBSORT        # sort filenames numerically when it makes sense
+setopt PATH_DIRS
+setopt PRINT_EXIT_VALUE       # Print the exit value of programs with non-zero exit status. This is only available at the command line in interactive shells.
+setopt PROMPTSUBST            # enable command substitution in prompt
+setopt PROMPT_SUBST
+setopt PUSHD_IGNORE_DUPS      # Don't push multiple copies of the same directory stack
+setopt PUSHD_TO_HOME
+setopt RMSTARSILENT HISTIGNOREDUPS
+setopt SHARE_HISTORY          # share command history data
+setopt TRANSIENT_RPROMPT      # Only show the rprompt on the current prompt
+setopt UNSET
+unsetopt BEEP
+unsetopt BG_NICE
+unsetopt CLOBBER
+unsetopt FLOW_CONTROL
+unsetopt HIST_BEEP
+unsetopt IGNORE_EOF
+unsetopt LIST_AMBIGUOUS
+unsetopt LIST_BEEP
+unsetopt RM_STAR_SILENT
+
