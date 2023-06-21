@@ -1,0 +1,5 @@
+-f 'bv*[height<=2000]+ba/b'
+--add-metadata
+--merge-output-format mkv
+--restrict-filenames
+-o "%(playlist)s/%(playlist_index)s_-_%(title)s.%(ext)s"
