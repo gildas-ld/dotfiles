@@ -1,0 +1,25 @@
+#!/usr/bin/zsh
+
+###### JetBrains ######
+alias ast="nohup sh /opt/JetBrains/AndroidStudio/bin/studio.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias astudio="nohup sh /opt/JetBrains/AndroidStudio/bin/studio.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias clion="nohup sh /opt/JetBrains/Clion/bin/clion.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias dbeaver="nohup dbeaver > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias dg="nohup sh /opt/JetBrains/DataGrip/bin/datagrip.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias gitkraken="nohup /opt/gitkraken/gitkraken > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias insomnia="nohup /opt/Insomnium/insomnium >/dev/null 2>&1 &"
+alias insomnium="nohup /opt/Insomnium/insomnium >/dev/null 2>&1 &"
+alias intj="nohup sh /opt/JetBrains/IntelliJ/bin/idea.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias intelj="nohup sh /opt/JetBrains/IntelliJ/bin/idea.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias masterpdf="nohup masterpdfeditor5 >/dev/null 2>&1 &"
+alias ph="nohup sh /opt/JetBrains/PHPStorm/bin/phpstorm.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias postman="nohup /opt/Postman/app/postman >/dev/null 2>&1 &"
+alias pyc="nohup sh /opt/JetBrains/Pycharm/bin/pycharm.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias pych="nohup sh /opt/JetBrains/Pycharm/bin/pycharm.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias pycharm="nohup sh /opt/JetBrains/Pycharm/bin/pycharm.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias rubyc="nohup sh /opt/JetBrains/RubyMine/bin/rubymine.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias rubych="nohup sh /opt/JetBrains/RubyMine/bin/rubymine.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias rubycha="nohup sh /opt/JetBrains/RubyMine/bin/rubymine.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias web="nohup sh /opt/JetBrains/WebStorm/bin/webstorm.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias goland="nohup sh /opt/JetBrains/GoLand/bin/goland.sh > /dev/null 2>&1 >/dev/null 2>&1 &"
+###### --------- ######
