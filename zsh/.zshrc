@@ -102,3 +102,11 @@ fi
 # export CPPFLAGS="-I/usr/local/opt/postgresql@15/include"
 export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
+
+
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+

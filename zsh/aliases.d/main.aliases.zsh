@@ -10,6 +10,7 @@
 # alias sqlite3=" rlwrap -a -N -c -i -p -f ~/.rlwrap/sqlite3_completions sqlite3"
 # alias sqlite=" rlwrap -a -N -c -i -p -f ~/.rlwrap/sqlite3_completions sqlite3"
 # alias n='nnn'
+# alias vsc='codium "${1:-.}"'
 # alias zcc='s=$1 ; _inke(){ inkscape --export-type=png "$1" -o "${s%.*}.png" -d ${2:-300} }; _inke'
 
 alias "?"="apropos"
@@ -36,6 +37,7 @@ alias an="awk_netstat.sh"
 alias bc='bc -l'
 alias c="clear"
 alias cajo='/usr/bin/caja --no-desktop "${1:-.}"'
+alias calc='perl -pe "print eval(\$_) . chr(10);"'
 alias cd-top='cd $(git rev-parse --show-toplevel)'
 alias cd...='cd ../..'
 alias cd..='cd ..'
@@ -115,6 +117,7 @@ alias inke='s=$1 ; _ink(){ inkscape --export-type=png "$1" -o "${s%.*}.png" -d $
 alias inr="grep -inr"
 alias ip='ip -color -all -human a'
 alias jb="web; dg"
+alias k9="kill -9 %1"
 alias k="kill -9 "
 alias kusr="kill -9 -1"
 alias m="mariadb --user=$USER"
@@ -144,10 +147,13 @@ alias numfiles='find "${1:-.}" -type f | wc -l'
 alias oct2dec='f(){ echo "obase=10; ibase=8; $1" | bc; unset -f f; }; f'
 alias ovpn="s=$1 ; _ovpn() { sudo openvpn --config ${1:-~/.vpn/main.ovpn } --auth-user-pass ~/.vpn/pass.txt }; _ovpn"
 alias p="ps aux | grep -i --color=auto"
+alias tree="tree -FC --charset=ascii"
 alias path='echo -e ${PATH//:/\\n}'
 alias pbc="php bin/console"
 alias pc="pwd -P | xclip -selection clipboard"
 alias pdate="date +"%Y-%m-%d__%s""
+alias pg="ps auwwx | grep -i -e ^USER -e "
+alias ph="ps auwwx | head"
 alias phpcbf="~/.config/composer/vendor/bin/phpcbf"
 alias phpcs="~/.config/composer/vendor/bin/phpcs"
 alias phps='php -S localhost:8000'
@@ -167,10 +173,10 @@ alias raf='rm -rf '
 alias reboot="systemctl reboot -i"
 alias redshift='gammastep'
 alias resign="!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i (; }; re"
-alias rsync="rsync -ahAXX --numeric-ids --stats --info=progress2"
 alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete'
 alias rsync-update='rsync -avu'
+alias rsync="rsync -ahAXX --numeric-ids --stats --info=progress2"
 alias rzsh="source ${ZDOTDIR:-$HOME}/.zshrc"
 alias s="sudo -s"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
@@ -217,13 +223,12 @@ alias ui="uuidgen |  tr -d \- | tr a-z A-Z"
 alias uid="uuidgen |  tr -d \- | tr a-z A-Z"
 alias v="nvim"
 alias vim="nvim"
-# alias vsc='codium "${1:-.}"'
-alias vsc='codium --add "${1:-.}"' # Add folder(s) to the last active window.
+alias vsc='codium --add "${1:-.}"'  # Add folder(s) to the last active window.
 alias vsca='codium --add "${1:-.}"' # Add folder(s) to the last active window.
-alias vsg="codium --goto " # file:line[:character]> Open a file at the path on the specified line and character position.
 alias vscie="codium --install-extension"
-alias vscn="codium --new-window" # Force to open a new window
-alias vscr="codium --reuse-window" # Force to open a file or folder in an already opened window
+alias vscn='codium --new-window "${1:-.}"'   # Force to open a new window
+alias vscr='codium --reuse-window "${1:-.}"' # Force to open a file or folder in an already opened window
+alias vsg='codium --goto "${1:-.}"'          # file:line[:character]> Open a file at the path on the specified line and character position.
 alias watchdir="watch -n .5 ls -la"
 alias watchsize="watch -n .5 du -h –max-depth=1"
 alias watchtail="watch -n .5 tail -n 20"

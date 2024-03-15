@@ -19,7 +19,7 @@ if [[ "$(uname)" != "Darwin" ]]; then
     export GREP_OPTIONS='--color=auto --ignore-case --extended-regexp --recursive'
     # export HOME="${HOME:-$(eval echo ~$USER)}"
     export HOME="${HOME:-$(getent passwd $USER 2>/dev/null | cut -d: -f6)}"
-    export LESS='--LINE-NUMBERS --LONG-PROMPT --status-column --squeeze-blank-lines --file-size --save-marks --ignore-case'
+    export LESS='--line-numbers --long-prompt --status-column --squeeze-blank-lines --file-size --save-marks --ignore-case --hilite-unread'
     export QT_STYLE_OVERRIDE=adwaita-dark
     export SDL_VIDEODRIVER="wayland,x11"
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
@@ -96,6 +96,12 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSHZ_CASE=smart
 export ZSHZ_ECHO=1
 export ZSH_DISABLE_COMPFIX=true
+# Report any login/logout of other users
+# export WATCH=notme
+export WATCH=all
+export WATCHFMT='%n %a %l from %m at %T.'
+export REPORTTIME=15
+
 # export ZSH_THEME="mikeh"
 
 if test -f "$HOME/.zshdebug"; then

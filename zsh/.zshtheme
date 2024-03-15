@@ -2,6 +2,7 @@
 # From mikeh theme
 
 setopt prompt_subst
+limit coredumpsize 0
 
 autoload -U add-zsh-hook
 autoload -Uz vcs_info

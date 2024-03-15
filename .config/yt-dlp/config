@@ -2,4 +2,3 @@
 --add-metadata
 --merge-output-format mkv
 --restrict-filenames
--o "%(playlist)s/%(playlist_index)s_-_%(title)s.%(ext)s"

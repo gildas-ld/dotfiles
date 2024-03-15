@@ -7,7 +7,7 @@ alias dnow=date_now
 
 adminer() {
 	echo "\n http://localhost:9000\n"
-	nohup php -S localhost:9000 ~/adminer/adminer-4.8.1.php >/dev/null 2>&1 &
+	nohup php -S localhost:9000 ~/adminer/index.php > /dev/null 2>&1 &
 }
 genp() {
 	LC_ALL=C tr -cd '[:graph:]' < /dev/urandom | fold -w${1:-42} | head -n${2:-1}
@@ -193,4 +193,12 @@ alias hzsh=H-glob
 
 clint() {
 	find . \( -iname "*.h" -o -iname "*.cpp" -o -iname "*.c" \) -exec clang-format -i --verbose --style=GNU {} +
+}
+
+tea-timer() {
+	s=${1:-2}
+	_tt() {
+		termdown $s && notify-send 'Tea ! Tea is done.'
+	}
+	_tt
 }

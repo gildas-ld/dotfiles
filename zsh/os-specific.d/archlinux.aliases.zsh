@@ -11,4 +11,3 @@ alias rsync-move='rsync -avz --stats --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --stats --info=progress2 --delete'
 alias rsync-update='rsync -avzu --stats --info=progress2'
 alias rsync="rsync -ahz --stats --info=progress2"
-

@@ -1,4 +1,6 @@
-# Turn off Mozilla telemetry
+# Turn off Mozilla telemetry || Floorp is the best
+
+> about:config
 
 ```ini
 browser.newtabpage.activity-stream.telemetry = false
@@ -19,3 +21,18 @@ toolkit.telemetry.unified = false
 toolkit.telemetry.unifiedIsOptIn = false
 toolkit.telemetry.updatePing.enabled = false
 ```
+
+This sets the color scheme to prefer light mode.
+
+You can also set it to :
+
+dark = 0
+system = 2
+firefoxTheme = 3
+light = 1
+
+```ini
+layout.css.prefers-color-scheme.content-override = 1
+```
+http://0.0.0.0/
+
