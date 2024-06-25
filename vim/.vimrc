@@ -12,6 +12,7 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-tsserver
 " :CocInstall coc-python
+" :CocInstall coc-clangd
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
@@ -119,6 +120,7 @@ if has("autocmd")
     " CoC configuration for Python and JavaScript
     autocmd FileType python setlocal omnifunc=v:lua.vim.lsp.omnifunc
     autocmd FileType javascript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+    autocmd BufRead,BufNewFile * set tags+=./tags;
 endif
 " spacebar create/open/close folding
 nmap <silent> <Space> za
@@ -129,6 +131,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 ""-- file type detection --
 syntax on
+syntax enable
 highlight LineNR cterm=none ctermfg=Yellow ctermbg=none
 highlight CursorLineNR cterm=bold ctermfg=Blue ctermbg=none
 filetype on  "/!\ doesn't play well with compatible mode
@@ -398,7 +401,7 @@ set startofline
 set statusline=\ ☠\ %F%m%r%h%w\ (%{&ff}/%Y)\ ⚐\ %y%m%r%*\ ❑\ %n%=✎\ %(%l:%c\%)\ ⇨\ %P
 set t_Co=256
 set tabstop=4
-set tags=./tags;
+set tags+=./tags;
 set termencoding=utf-8
 set title
 set titleold="Terminal"
