@@ -1,3 +1,4 @@
+// Placer vos combinaisons de touches dans ce fichier pour remplacer les valeurs par défaut
 [
   {
     "command": "-breadcrumbs.focus",
@@ -137,10 +138,6 @@
     "command": "-keybindings.editor.addKeybinding",
     "key": "ctrl+k ctrl+a",
     "when": "inKeybindings && keybindingFocus"
-  },
-  {
-    "command": "github.copilot.acceptPanelSolution",
-    "key": "ctrl+k ctrl+a"
   },
   {
     "command": "-workbench.action.openSettings",
@@ -347,6 +344,64 @@
     "key": "ctrl+k z"
   },
   {
+    "command": "-bookmarks.expandSelectionToNext",
+    "key": "shift+alt+l",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "-bookmarks.expandSelectionToPrevious",
+    "key": "shift+alt+j",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "-bookmarks.jumpToNext",
+    "key": "alt+cmd+l",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "editor.action.formatDocument",
+    "key": "cmd+shift+i",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "command": "editor.action.formatDocument",
+    "key": "alt+shift+i",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "command": "editor.action.formatDocument",
+    "key": "ctrl+shift+i",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "command": "-workbench.action.quickchat.toggle",
+    "key": "shift+cmd+i",
+    "when": "hasChatProvider"
+  },
+  {
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "key": "shift+cmd+i",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+    "key": "shift+alt+i",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "-cursorHome",
+    "key": "cmd+left",
+    "when": "textInputFocus"
+  },
+  {
+    "command": "workbench.action.navigateBack",
+    "key": "cmd+left"
+  },
+  {
+    "command": "workbench.action.navigateForward",
+    "key": "cmd+right"
+  },
+  {
     "command": "-workbench.action.zoomIn",
     "key": "ctrl+="
   },
@@ -400,3 +455,4 @@
     "when": "!editorFocus"
   }
 ]
+

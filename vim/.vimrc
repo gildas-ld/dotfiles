@@ -7,6 +7,12 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#environment_path = "/Users/gildas/.pyenv/shims/python3"
+let g:jedi#popup_select_first = 0
+let g:jedi#use_splits_not_buffers = "left"
+let g:python3_host_prog = '/Users/gildas/.pyenv/shims/python3'
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -25,11 +31,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#environment_path = "/usr/bin/python3.12"
-let g:jedi#popup_select_first = 0
-let g:jedi#use_splits_not_buffers = "left"
-let g:python3_host_prog = '/usr/bin/python3.12'
 
 source ~/vim/plugins/commentary.vim
 source ~/vim/plugins/shfmt.vim
