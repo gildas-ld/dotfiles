@@ -24,24 +24,42 @@ elif [ "$PWD" != "$GIT_TOP_LEVEL" ]; then
 	die "You must be at the location of the script in order to execute it..."
 fi
 
-printf "Do you want to install dotfiles ? (y/N)\n"
-while true; do
-	read -r choice
-	case $choice in
-	[Yy])
-		install=1
-		break
-		;;
-	[Nn])
-		install=0
-		break
+bypass=false
+
+while [[ $# -gt 0 ]]; do
+	case $1 in
+	-y | --yes)
+		bypass=true
+		shift
 		;;
 	*)
-		printf "${RED}Please answer y or n.${NC}\n"
+		die "Option unknown : $1"
 		;;
-
 	esac
 done
+
+if [ "$bypass" = true ]; then
+	install=1
+else
+	printf "Do you want to install dotfiles ? (y/N)\n"
+	while true; do
+		read -r choice
+		case $choice in
+		[Yy])
+			install=1
+			break
+			;;
+		[Nn])
+			install=0
+			break
+			;;
+		*)
+			printf "${RED}Please answer y or n.${NC}\n"
+			;;
+		esac
+	done
+fi
+
 if [ "$install" = "1" ]; then
 	clear
 	printf "${RED}Dotfiles is being installed...${NC}\n\n"

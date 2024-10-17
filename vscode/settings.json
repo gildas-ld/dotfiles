@@ -162,7 +162,7 @@
   "editor.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
   "editor.fontLigatures": false,
   // Controls the font size in pixels.
-  "editor.fontSize": 15,
+  "editor.fontSize": 17,
   "editor.fontVariations": false,
   "editor.fontWeight": "normal",
   // "editor.fontFamily": "Consolas, Consolas, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, monospace",
