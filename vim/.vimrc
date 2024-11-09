@@ -42,9 +42,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " ------------------
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 " Ale Configuration for Linting and Formatting
 " ------------------
 
@@ -219,10 +221,13 @@ nnoremap <leader>tc :tabclose<CR>
 inoremap jj <Esc>
 imap ;; <Esc>
 
+" Remap <F2> to toggle paste mode in normal and insert modes
+nnoremap <F2> :set invpaste paste?<CR>
+inoremap <F2> <C-o>:set invpaste paste?<CR>
+set pastetoggle=<F2>
+
 " Toggle settings
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
 
 " Text wrapping
 set nowrap
