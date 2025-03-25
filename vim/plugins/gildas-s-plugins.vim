@@ -4,6 +4,28 @@ augroup bash_shebang
 augroup END
 autocmd BufWritePost *.sh !chmod +x %
 
+function! AddVimAfterFence(i)
+    if a:i % 2 == 1
+        execute "normal! A vim"
+    endif
+    let i += 1
+endfunction
+
+
+function! AddVimEverySecondFencePerFile()
+    let i = 0  " Réinitialiser le compteur pour chaque fichier
+    let lastline = line('$')  " Récupère le nombre total de lignes du fichier
+
+    for lnum in range(1, lastline)
+        if getline(lnum) == '```'
+            if i % 2 != 1
+                call setline(lnum, '```vim')
+            endif
+            let i += 1
+        endif
+    endfor
+endfunction
+
 function! CreateFileOrDir()
     " Vérifie si le fichier sous le curseur existe
     if !filereadable(expand('<cfile>'))

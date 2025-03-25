@@ -223,7 +223,7 @@ autocmd InsertLeave * set nopaste
 "autocmd InsertEnter * set paste
 nnoremap <F2> :set invpaste paste?<CR>
 inoremap <F2> <C-o>:set invpaste paste?<CR>
-set pastetoggle=<F2>
+"nnoremap <F2> :set paste!<CR>
 
 " Toggle settings
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
@@ -289,14 +289,14 @@ xnoremap <C-DOWN> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
 set undofile
 set undolevels=1000
-set undodir=/home/gildas/.vim/undodir
+set undodir=$HOME/.vim/undodir
 
 " Activer les fichiers de sauvegarde
 set backup
-set backupdir=/home/gildas/.vim/backup//
+set backupdir=$HOME/.vim/backup//
 
-" Activer les fichiers temporaires
-set directory=/home/gildas/.vim/swap//
+" Activer les fichiers temporaires (swap)
+set directory=$HOME/.vim/swap//
 
 " Autocommands for folding and encoding
 augroup vimrc
@@ -311,6 +311,12 @@ set sessionoptions-=buffers
 set sessionoptions-=curdir
 set sessionoptions+=sesdir,globals
 
+set textwidth=78
+set wrapmargin=0
+set wrap
+set spell
+set spelllang=fr,en
+set fileencodings=ucs-bom,utf-8,latin1
 
 ""=  : (re)indent the text on the current line or on the area selected (SUPER)
 ""=%  : (re)indent the current braces { ... }
