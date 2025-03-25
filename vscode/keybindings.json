@@ -457,5 +457,13 @@
   {
     "command": "editor.unfoldAll",
     "key": "ctrl+k ctrl+h"
+  },
+  {
+    "key": "ctrl+alt+[IntlBackslash]",
+    "command": "editor.action.reindentselectedlines"
+  },
+  {
+    "key": "shift+[IntlBackslash] shift+[IntlBackslash]",
+    "command": "editor.action.reindentlines"
   }
 ]
