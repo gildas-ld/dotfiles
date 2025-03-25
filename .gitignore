@@ -38,3 +38,5 @@ nohup.out
 tags
 vscode
 others
+.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+.config/btop/btop.log
