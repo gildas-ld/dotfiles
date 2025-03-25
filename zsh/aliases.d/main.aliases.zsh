@@ -169,6 +169,7 @@ alias psMem='ps aux --sort -%mem'
 alias pwd="pwd -P"
 alias pym="python3 manage.py"
 alias raf='rm -rf '
+alias rclone="rclone -P --transfers=32 --checkers=64 --multi-thread-streams=8 --multi-thread-cutoff=10M --multi-thread-chunk-size=256M --buffer-size=1024M --stats=1s --stats-one-line --drive-chunk-size=1024M"
 alias reboot="systemctl reboot -i"
 alias redshift='gammastep'
 alias resign="!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i (; }; re"
@@ -176,6 +177,8 @@ alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete'
 alias rsync-update='rsync -avu'
 alias rsync="rsync -ah --stats --info=progress2"
+alias rsyncn="rsync -ah --numeric-ids --stats --info=progress2"
+alias rsyncnd="rsync -ah --numeric-ids --delete-during --stats --info=progress2"
 alias rzsh="source ${ZDOTDIR:-$HOME}/.zshrc"
 alias s="sudo -s"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'

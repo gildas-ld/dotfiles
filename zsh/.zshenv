@@ -112,7 +112,7 @@ export ZSHZ_ECHO=1
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12674087
 # 26.1.10909125
-export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export NDK_VERSION=29.0.13113456
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -124,4 +124,5 @@ if test -f "$HOME/.zshcolors"; then
 fi
 
 
+export PATH="/home/gildas/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
