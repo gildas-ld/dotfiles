@@ -4,5 +4,5 @@
 key=$(head -c 12 /dev/urandom | xxd -p | tr a-z A-Z)
 cat <<EOL
 
-$key
+Message-ID: $key
 EOL

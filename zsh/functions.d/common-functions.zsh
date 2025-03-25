@@ -127,7 +127,7 @@ function killps() {          # kill by process name
 # END Process/system related functions :          |
 #-------------------------------------------------#
 alias se=simple-extract
-f() {
+find_() {
 	find . -iname "*${1:-''}*" -print 2> /dev/null
 }
 
@@ -233,4 +233,29 @@ update-timezone() {
 }
 get-timezone() {
 	printf '%s' "$(curl --no-progress-meter --fail https://ipapi.co/timezone)"
+}
+pc() {
+  # Get the absolute physical path (resolving symlinks)
+  current_path=$(pwd -P)
+
+  # Detect Wayland session and test for wl-copy
+  if [ -n "$WAYLAND_DISPLAY" ] && command -v wl-copy >/dev/null 2>&1; then
+    echo -n "$current_path" | wl-copy
+    return 0
+
+  # Detect X11 session and test for xclip
+  elif [ -n "$DISPLAY" ] && command -v xclip >/dev/null 2>&1; then
+    echo -n "$current_path" | xclip -selection clipboard
+    return 0
+
+  # Fallback: test for pbcopy (e.g. on macOS)
+  elif command -v pbcopy >/dev/null 2>&1; then
+    echo -n "$current_path" | pbcopy
+    return 0
+
+  # If no suitable clipboard utility is found
+  else
+    echo "No supported clipboard utility found for the current graphical session." >&2
+    return 1
+  fi
 }

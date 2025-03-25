@@ -44,9 +44,9 @@
     "[html][django-html][handlebars][hbs][mustache][jinja][jinja-html][nj][njk][nunjucks][twig]": {
         "editor.defaultFormatter": "monosans.djlint"
     },
-	"[java]": {
-		"editor.defaultFormatter": "redhat.java"
-	},
+    "[java]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features",
         "editor.formatOnPaste": true,
@@ -73,13 +73,13 @@
         "editor.defaultFormatter": "cstef.kotlin-formatter"
     },
     "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
-	"[php]": {
-		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
-		"editor.formatOnPaste": false,
-		"editor.suggest.showKeywords": false,
-	},
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+        "editor.formatOnPaste": false,
+        "editor.suggest.showKeywords": false
+    },
     "[properties]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
@@ -91,7 +91,10 @@
         "editor.defaultFormatter": "vscode.css-language-features"
     },
     "[shellscript]": {
-        "editor.defaultFormatter": "mkhl.shfmt"
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
     "[twig]": {
         "editor.defaultFormatter": "mblode.twig-language-2"
@@ -131,6 +134,7 @@
     "clangd.path": "/usr/bin/clangd",
     "cmake.options.statusBarVisibility": "compact",
     "dart.flutterSdkPath": "/opt/flutter",
+    "database-client.autoSync": true,
     "debug.console.fontSize": 16,
     "debug.javascript.autoAttachFilter": "disabled",
     "debug.javascript.autoAttachSmartPattern": [
@@ -166,17 +170,18 @@
         "source.organizeImports": "always",
         "source.sortImports": "always"
     },
+    "editor.cursorBlinking": "smooth",
     "editor.defaultFormatter": "xaver.clang-format",
-    "editor.detectIndentation": false,
+    "editor.detectIndentation": true,
     "editor.emptySelectionClipboard": false,
-    "editor.fastScrollSensitivity": 2,
+    "editor.fastScrollSensitivity": 1.8,
     "editor.folding": true, // gutter - paddingu
     // Controls the font family.
-    "editor.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": false,
     // Controls the font size in pixels.
     "editor.fontSize": 16,
-    "editor.fontVariations": false,
+    "editor.fontVariations": true,
     "editor.fontWeight": "normal",
     // "editor.fontFamily": "Consolas, Consolas, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, monospace",
     // "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'", // false || false
@@ -187,22 +192,21 @@
     "editor.formatOnType": false,
     "editor.glyphMargin": true, // padding | gutter | false
     "editor.guides.bracketPairs": true,
-    "editor.hover.delay": 400,
+    "editor.hover.delay": 300,
     "editor.hover.enabled": true,
     "editor.inlayHints.enabled": "on",
-    "editor.inlayHints.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "editor.inlayHints.fontFamily": "FiraCode Nerd Font, IBMPlexMono, monospace, 'Droid Sans Fallback'",
     "editor.inlineSuggest.enabled": true,
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.lineDecorationsWidth": 0, // undocumented // gutter - padding
     "editor.lineNumbers": "on",
     "editor.lineNumbersMinChars": 0, // undocumented // gutter - padding
     "editor.linkedEditing": true,
-    "editor.minimap.enabled": false,
-    "editor.minimap.maxColumn": 40,
-    "editor.minimap.scale": 2,
+    "editor.minimap.autohide": true,
+    "editor.minimap.maxColumn": 30,
+    "editor.minimap.showDiagnostics": false,
     "editor.minimap.showSlider": "always",
-    "editor.minimap.size": "fill",
-    "editor.mouseWheelScrollSensitivity": 5,
+    "editor.mouseWheelScrollSensitivity": 3,
     "editor.mouseWheelZoom": true,
     "editor.parameterHints.enabled": false,
     "editor.quickSuggestionsDelay": 30,
@@ -210,7 +214,7 @@
     // "editor.rulers": [80, 120],
     "editor.scrollbar.scrollByPage": true,
     "editor.showUnused": true,
-    "editor.smoothScrolling": false,
+    "editor.smoothScrolling": true,
     "editor.snippetSuggestions": "top",
     "editor.stickyScroll.enabled": true,
     "editor.suggest.insertMode": "replace",
@@ -219,7 +223,7 @@
     "editor.suggest.showStatusBar": true,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "recentlyUsedByPrefix",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.unicodeHighlight.invisibleCharacters": false,
     "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.wordWrap": "on",
@@ -271,53 +275,56 @@
         "*.jsx": "${capture}.js",
         "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
-        "tsconfig.json": "tsconfig.*.json"
+        "package.jsonl": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "tsconfig.jsonl": "tsconfig.*.jsonl"
     },
     "explorer.openEditors.sortOrder": "alphabetical",
     "extensions.autoUpdate": true,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-		".djlintrc": "json",
-		".env": "properties",
-		".env.example": "properties",
-		".env.local": "properties",
-		".env.new": "properties",
-		".env.production": "properties",
-		".htaccess": "ruby",
-		".tmux.conf.local": "properties",
-		"*.cf": "lua",
-		"*.cnf": "properties",
-		"*.css": "css",
-		"*.env": "properties",
-		"*.gd": "python",
-		"*.gz": "dot",
-		"*.html": "html",
-		"*.js": "javascript",
-		"*.json": "jsonc",
-		"*.kt": "kotlin",
-		"*.md": "markdown",
-		"*.nix": "shellscript",
-		"*.pacnew": "ini",
-		"*.php": "php",
-		"*.plantuml": "lua",
-		"*.pro": "shellscript",
-		"*.psql": "sql",
-		"*.sublime-keymap": "json",
-		"*.sublime-settings": "json",
-		"*.template": "jsonc",
-		"*.wikitext": "wikitext",
-		"*.xml": "html",
-		"*.yaml": "yaml",
-		"*.yml": "yaml",
-		"config": "jsonc",
-		"env-example": "properties",
-		"LICENSE": "markdown",
-		"README": "markdown",
-		"README.md": "markdown",
-		"*.muttrc": "python",
-		"neomuttrc": "python"
-	},
+        "*.cf": "lua",
+        "*.cnf": "properties",
+        "*.css": "css",
+        "*.env": "properties",
+        "*.gd": "python",
+        "*.gz": "dot",
+        "*.html": "html",
+        "*.js": "javascript",
+        "*.json": "jsonl",
+        "*.jsonl": "jsonc",
+        "*.kt": "kotlin",
+        "*.md": "markdown",
+        "*.muttrc": "python",
+        "*.nix": "shellscript",
+        "*.pacnew": "ini",
+        "*.php": "php",
+        "*.plantuml": "lua",
+        "*.pro": "shellscript",
+        "*.psql": "sql",
+        "*.sublime-keymap": "jsonl",
+        "*.sublime-settings": "jsonl",
+        "*.template": "jsonc",
+        "*.wikitext": "wikitext",
+        "*.xml": "html",
+        "*.yaml": "yaml",
+        "*.yml": "yaml",
+        ".djlintrc": "jsonl",
+        ".env": "properties",
+        ".env.example": "properties",
+        ".env.local": "properties",
+        ".env.new": "properties",
+        ".env.production": "properties",
+        ".htaccess": "ruby",
+        ".tmux.conf.local": "properties",
+        "LICENSE": "markdown",
+        "Modules": "jsonl",
+        "ModulesCustom": "jsonl",
+        "README": "markdown",
+        "README.md": "markdown",
+        "config": "jsonc",
+        "env-example": "properties",
+        "neomuttrc": "python"
+    },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1,
     "files.defaultLanguage": "{activeEditorLanguage}",
@@ -325,25 +332,28 @@
     //"editor.trimAutoWhitespace": false,
     "files.eol": "\n",
     "files.exclude": {
-        ".git/": false,
-        ".next/": false,
-        "**/.DS_Store": true,
+        "**/.DS_Store": false,
         "**/.idea": false,
         "**/.sql": false,
         "**/.vscode*": false,
-        "**/cache/": true,
+        "**/cache/": false,
+        "**/certificates/": false,
         "**/dist/": false,
-        "**/infinitewp/": true,
+        "**/infinitewp/": false,
         "**/node_modules/": false,
-        "**/staticfiles/": true,
-        "**/uploads/": true,
+        "**/staticfiles/": false,
+        "**/uploads/": false,
         "**/venv/": false,
-        "wp-admin/": true,
+        ".git/": false,
+        ".next/": false,
+        "wp-admin/": false,
         "wp-config.*": false,
-        "wp-includes/": true,
-        "xmlrpc.php": true
+        "wp-includes/": false,
+        "xmlrpc.php": false
     },
     "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     // Configure paths or glob patterns to exclude from file watching.
     "files.watcherExclude": {
         "**/.git": true,
@@ -380,9 +390,16 @@
     "html.format.wrapAttributes": "force-expand-multiline",
     "html.suggest.html5": true,
     "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
+    "intelephense.diagnostics.exclude": [
+        "P1009",
+        "P21011"
+    ],
     "intelephense.diagnostics.ignoredCodes": [
         1009
     ],
+    "intelephense.diagnostics.undefinedClassConstants": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedTypes": false,
     "intelephense.telemetry.enabled": false,
     "java.autobuild.enabled": false,
     "java.import.gradle.offline.enabled": true,
@@ -404,6 +421,7 @@
     "jshint.options": {
         "esversion": 6
     },
+    "jupyter.askForKernelRestart": false,
     "kotlin-formatter.ktlintPath": "/usr/local/bin/ktlint",
     "kotlin.debugAdapter.enabled": false,
     "kotlin.languageServer.enabled": false,
@@ -435,6 +453,7 @@
     "liveServer.settings.fullReload": true,
     "liveServer.settings.wait": 1,
     "makefile.configureOnOpen": false,
+    "markdown-preview-enhanced.chromePath": "/usr/bin/chromium",
     "markdown.preview.fontFamily": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
     "markdown.preview.fontSize": 16,
     "markdown.preview.typographer": true,
@@ -485,6 +504,7 @@
         "reportImplicitStringConcatenation": "warning",
         "reportUnboundVariable": "information"
     },
+    "python.createEnvironment.trigger": "off",
     "python.diagnostics.sourceMapsEnabled": true,
     "python.formatting.autopep8Path": "black",
     "python.formatting.provider": "black",
@@ -516,12 +536,12 @@
     // "workbench.activityBar.visible": false, // gutter - padding
     "scss.showErrors": true,
     "search.exclude": {
+        "**/*.code-search": true,
         "**/.build": true,
         "**/.gh-pages": true,
         "**/.git": true,
         "**/.next": true,
         "**/.sql": true,
-        "**/*.code-search": true,
         "**/bower_components": true,
         "**/build": true,
         "**/coverage": true,
@@ -535,9 +555,28 @@
     },
     "search.smartCase": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "shellcheck.executablePath": "/usr/bin/shellcheck",
+    "shellcheck.customArgs": [],
+    "shellcheck.enable": true,
+    "shellcheck.enableQuickFix": true,
+    "shellcheck.exclude": [],
+    "shellcheck.executablePath": "/usr/bin/shellcheck", // Priority: user defined > bundled shellcheck binary > "shellcheck"
+    "shellcheck.ignoreFileSchemes": [
+        "git",
+        "gitfs",
+        "output"
+    ],
+    "shellcheck.ignorePatterns": {
+        "**/*.zsh": true,
+        "**/*.zsh*": true,
+        "**/.git/*.sh": true,
+        "**/folder/**/*.sh": true
+    },
+    "shellcheck.run": "onType",
     //   "shfmt.executableArgs": ["--write --simplify --indent 0 --space-redirects"],
     "shfmt.executablePath": "/usr/bin/shfmt",
+    "sonarlint.analyzerProperties": {
+        "sonar.javascript.node.maxspace": "16384"
+    },
     "sonarlint.connectedMode.connections.sonarcloud": [],
     "sonarlint.connectedMode.connections.sonarqube": [
         {
@@ -562,14 +601,47 @@
         "javascript:S106": {
             "level": "off"
         },
+        "javascript:S1066": {
+            "level": "on"
+        },
+        "javascript:S1067": {
+            "level": "on"
+        },
         "javascript:S109": {
+            "level": "off"
+        },
+        "javascript:S1105": {
+            "level": "on"
+        },
+        "javascript:S1110": {
+            "level": "on"
+        },
+        "javascript:S1116": {
+            "level": "on"
+        },
+        "javascript:S1117": {
+            "level": "on"
+        },
+        "javascript:S1128": {
             "level": "off"
         },
         "javascript:S113": {
             "level": "on"
         },
+        "javascript:S1131": {
+            "level": "off"
+        },
+        "javascript:S1154": {
+            "level": "on"
+        },
         "javascript:S117": {
             "level": "on"
+        },
+        "javascript:S1172": {
+            "level": "off"
+        },
+        "javascript:S1192": {
+            "level": "off"
         },
         "javascript:S121": {
             "level": "off"
@@ -597,45 +669,6 @@
         },
         "javascript:S139": {
             "level": "on"
-        },
-        "javascript:S881": {
-            "level": "on"
-        },
-        "javascript:S909": {
-            "level": "on"
-        },
-        "javascript:S1066": {
-            "level": "on"
-        },
-        "javascript:S1067": {
-            "level": "on"
-        },
-        "javascript:S1105": {
-            "level": "on"
-        },
-        "javascript:S1110": {
-            "level": "on"
-        },
-        "javascript:S1116": {
-            "level": "on"
-        },
-        "javascript:S1117": {
-            "level": "on"
-        },
-        "javascript:S1128": {
-            "level": "off"
-        },
-        "javascript:S1131": {
-            "level": "off"
-        },
-        "javascript:S1154": {
-            "level": "on"
-        },
-        "javascript:S1172": {
-            "level": "off"
-        },
-        "javascript:S1192": {
-            "level": "off"
         },
         "javascript:S1438": {
             "level": "off"
@@ -802,6 +835,12 @@
         "javascript:S6582": {
             "level": "off"
         },
+        "javascript:S881": {
+            "level": "on"
+        },
+        "javascript:S909": {
+            "level": "on"
+        },
         "php:P1009": {
             "level": "off"
         },
@@ -811,13 +850,13 @@
         "php:S103": {
             "level": "off"
         },
-        "php:S125": {
-            "level": "off"
-        },
         "php:S1131": {
             "level": "off"
         },
         "php:S1192": {
+            "level": "off"
+        },
+        "php:S125": {
             "level": "off"
         },
         "php:S6600": {
@@ -847,13 +886,46 @@
         "typescript:S106": {
             "level": "off"
         },
+        "typescript:S1066": {
+            "level": "on"
+        },
+        "typescript:S1067": {
+            "level": "on"
+        },
         "typescript:S109": {
+            "level": "off"
+        },
+        "typescript:S1105": {
+            "level": "on"
+        },
+        "typescript:S1110": {
+            "level": "on"
+        },
+        "typescript:S1116": {
+            "level": "on"
+        },
+        "typescript:S1117": {
+            "level": "on"
+        },
+        "typescript:S1128": {
             "level": "off"
         },
         "typescript:S113": {
             "level": "off"
         },
+        "typescript:S1131": {
+            "level": "off"
+        },
+        "typescript:S1154": {
+            "level": "on"
+        },
         "typescript:S117": {
+            "level": "on"
+        },
+        "typescript:S1172": {
+            "level": "on"
+        },
+        "typescript:S1192": {
             "level": "on"
         },
         "typescript:S121": {
@@ -882,45 +954,6 @@
         },
         "typescript:S139": {
             "level": "off"
-        },
-        "typescript:S881": {
-            "level": "on"
-        },
-        "typescript:S909": {
-            "level": "on"
-        },
-        "typescript:S1066": {
-            "level": "on"
-        },
-        "typescript:S1067": {
-            "level": "on"
-        },
-        "typescript:S1105": {
-            "level": "on"
-        },
-        "typescript:S1110": {
-            "level": "on"
-        },
-        "typescript:S1116": {
-            "level": "on"
-        },
-        "typescript:S1117": {
-            "level": "on"
-        },
-        "typescript:S1128": {
-            "level": "off"
-        },
-        "typescript:S1131": {
-            "level": "off"
-        },
-        "typescript:S1154": {
-            "level": "on"
-        },
-        "typescript:S1172": {
-            "level": "on"
-        },
-        "typescript:S1192": {
-            "level": "on"
         },
         "typescript:S1438": {
             "level": "off"
@@ -1092,6 +1125,12 @@
         },
         "typescript:S6844": {
             "level": "off"
+        },
+        "typescript:S881": {
+            "level": "on"
+        },
+        "typescript:S909": {
+            "level": "on"
         }
     },
     "sonarlint.trace.server": "off",
@@ -1107,13 +1146,19 @@
         "sortJSONValues": true,
         "sortJSONValuesReverse": true
     },
+    "sqltools.useNodeRuntime": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "terminal.integrated.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.mouseWheelScrollSensitivity": 1.1,
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh"
+        }
+    },
     "terminal.integrated.tabStopWidth": 4,
     "testing.autoRun.delay": 10,
     "totalTypeScript.hiddenTips": [
@@ -1160,14 +1205,24 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.confirmSaveUntitledWorkspace": false,
     "window.title": "${dirty}${separator}${separator}${activeEditorLong} - ${appName}",
+    "window.titleBarStyle": "custom",
     "workbench.colorCustomizations": {
         "badge.background": "#de0000",
         "badge.foreground": "#ffffff"
     },
     "workbench.colorTheme": "Default Dark+",
+    "workbench.editor.alwaysShowEditorActions": true,
+    "workbench.editor.autoLockGroups": {
+        "mainThreadWebview-browserPreview": false,
+        "mainThreadWebview-simpleBrowser.view": false
+    },
     "workbench.editor.enablePreview": true,
-    "workbench.editor.labelFormat": "short",
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.labelFormat": "medium",
     "workbench.editor.scrollToSwitchTabs": true,
+    "workbench.editor.sharedViewState": true,
     "workbench.editor.showTabs": "multiple", // "multiple, single, none"
     "workbench.editor.wrapTabs": true,
     "workbench.editorAssociations": {
@@ -1182,8 +1237,10 @@
     "workbench.remoteIndicator.showExtensionRecommendations": false,
     "workbench.sash.hoverDelay": 200,
     "workbench.settings.openDefaultKeybindings": true,
+    "workbench.startupEditor": "welcomePage",
     "workbench.tree.indent": 15,
     "workbench.tree.renderIndentGuides": "always",
+    "workbench.view.alwaysShowHeaderActions": true,
     "zenMode.fullScreen": false,
     "zenMode.hideActivityBar": true,
     "zenMode.hideLineNumbers": false,
