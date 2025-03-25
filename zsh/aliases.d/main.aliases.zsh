@@ -125,9 +125,7 @@ alias m="mariadb --user=$USER"
 alias meminfo='free -m -l -t'
 alias mg="mycli -u gildas"
 alias mkdir="mkdir -pv"
-alias mkenv="_mkenv() { python3 -m venv venv && source ./venv/bin/activate && echo $VIRTUAL_ENV }; _mkenv"
 alias mksri='s=$1 ; _mksri(){ cat "$1" | openssl dgst -sha${2:-512} -binary | openssl enc -base64 -A | strings }; _mksri'
-alias mkvenv="_mkenv() { python3 -m venv venv && source ./venv/bin/activate && echo $VIRTUAL_ENV }; _mkenv"
 alias mnt="mount | grep -E '^/dev' | column -t"
 alias mse='_mse(){ mariadb-dump --user=$USER --routines --add-drop-database --add-drop-table --add-drop-trigger --add-locks --disable-keys --create-options --single-transaction -i "$1" >| "${1}_$(date +'%Y_%m_%d__%T').sql" }; _mse'
 alias msql="mariadb -u $DB_USER -p$DB_PASS --database $DB_DEFAULT"
@@ -137,9 +135,10 @@ alias nb='npm run build'
 alias nd='npm run dev'
 alias nf="_nf(){ npx prettier --write --ignore-unknown --insert-pragma  ${1:-$PWD} }; _nf"
 alias ni='npm install'
+alias n='nnn -e'
 alias nid='npm install --dev'
-alias n='nnn'
-alias nn='nnn'
+alias nn='nnn -e'
+alias nnn='nnn -e'
 alias nomnom='killall'
 alias nr="grep -nri"
 alias nri="grep -nri"
@@ -151,7 +150,6 @@ alias p="ps aux | grep -i --color=auto"
 alias tree="tree -FC --charset=ascii"
 alias path='echo -e ${PATH//:/\\n}'
 alias pbc="php bin/console"
-alias pc="pwd -P | xclip -selection clipboard"
 alias pdate="date +"%Y-%m-%d__%s""
 alias phpcbf="~/.config/composer/vendor/bin/phpcbf"
 alias phpcs="~/.config/composer/vendor/bin/phpcs"
@@ -169,18 +167,26 @@ alias psMem='ps aux --sort -%mem'
 alias pwd="pwd -P"
 alias pym="python3 manage.py"
 alias raf='rm -rf '
+alias rclone='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t1='rclone -P --transfers=2 --checkers=4 --multi-thread-streams=1 --multi-thread-cutoff=100M --multi-thread-chunk-size=16M --buffer-size=32M --stats=2s --stats-one-line --drive-chunk-size=32M'
+alias rclone_t2='rclone -P --transfers=4 --checkers=8 --multi-thread-streams=2 --multi-thread-cutoff=50M --multi-thread-chunk-size=32M --buffer-size=64M --stats=2s --stats-one-line --drive-chunk-size=64M'
+alias rclone_t3='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t4='rclone -P --transfers=16 --checkers=32 --multi-thread-streams=6 --multi-thread-cutoff=15M --multi-thread-chunk-size=128M --buffer-size=512M --stats=2s --stats-one-line --drive-chunk-size=512M'
+alias rclone_t5="rclone -P --transfers=32 --checkers=64 --multi-thread-streams=8 --multi-thread-cutoff=10M --multi-thread-chunk-size=256M --buffer-size=1024M --stats=2s --stats-one-line --drive-chunk-size=1024M"
 alias reboot="systemctl reboot -i"
 alias redshift='gammastep'
 alias resign="!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i (; }; re"
+alias rmlint='rmlint -T "all" -g -p'
 alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete'
 alias rsync-update='rsync -avu'
 alias rsync="rsync -ah --stats --info=progress2"
+alias rsyncn="rsync -ah --numeric-ids --stats --info=progress2"
+alias rsyncnd="rsync -ah --numeric-ids --delete-during --stats --info=progress2"
 alias rzsh="source ${ZDOTDIR:-$HOME}/.zshrc"
 alias s="sudo -s"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias sen="systemctl enable"
-alias senv="_senv() { source ./venv/bin/activate && echo $VIRTUAL_ENV }; _senv"
 alias shfmt='shfmt --write --simplify --indent 0 --space-redirects'
 alias show-top='echo $(git rev-parse --show-toplevel)'
 alias showtop='echo $(git rev-parse --show-toplevel)'
@@ -220,7 +226,6 @@ alias try="gnome-open"
 alias ts="tmux new-session -s"
 alias ui="uuidgen |  tr -d \- | tr a-z A-Z"
 alias uid="uuidgen |  tr -d \- | tr a-z A-Z"
-alias v="nvim"
 alias vim="nvim"
 alias vsc='codium --add "${1:-.}"'  # Add folder(s) to the last active window.
 alias vsca='codium --add "${1:-.}"' # Add folder(s) to the last active window.
