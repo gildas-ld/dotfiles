@@ -1,0 +1,73 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none",
+    "height": 6,
+    "width": 11,
+    "padding": {
+      "top": 3
+    }
+  },
+  "display": {
+    "separator": " ➜  "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "os",
+      "key": "󰣇 Distribution",
+      "keyColor": "31"
+    },
+    {
+      "type": "kernel",
+      "key": " ├ 󰋛 Kernel",
+      "keyColor": "31"
+    },
+    {
+      "type": "packages",
+      "key": " ├ 󰏖 Paquets",
+      "keyColor": "31"
+    },
+    {
+      "type": "shell",
+      "key": " └ 󰆍 Shell",
+      "keyColor": "31"
+    },
+    "break",
+    {
+      "type": "host",
+      "format": "{2}",
+      "key": "󰌢 Système",
+      "keyColor": "33"
+    },
+    {
+      "type": "cpu",
+      "format": "{1} ({3}) @ {7} GHz",
+      "key": " ├ 󰍛 CPU",
+      "keyColor": "33"
+    },
+    {
+      "type": "memory",
+      "key": " ├ 󰍛 Mémoire",
+      "keyColor": "33"
+    },
+    {
+      "type": "swap",
+      "key": " ├ 󰓡 Swap",
+      "keyColor": "33"
+    },
+    {
+      "type": "disk",
+      "key": " ├ 󰋊 Disque",
+      "keyColor": "33"
+    },
+    {
+      "type": "display",
+      "key": " └ 󰍹 Affichage",
+      "compactType": "original-with-refresh-rate",
+      "keyColor": "33"
+    },
+    "break",
+    "break"
+  ]
+}

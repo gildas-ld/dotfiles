@@ -5,6 +5,7 @@ alias android-studio="nohup /opt/AndroidStudio/bin/studio > /dev/null 2>&1 >/dev
 alias aqua="nohup /opt/JetBrains/Aqua/bin/aqua > /dev/null 2>&1 >/dev/null 2>&1 &"
 alias astudio="nohup /opt/JetBrains/AndroidStudio/bin/studio > /dev/null 2>&1 >/dev/null 2>&1 &"
 alias clion="nohup /opt/JetBrains/Clion/bin/clion > /dev/null 2>&1 >/dev/null 2>&1 &"
+alias rustrover="nohup /opt/JetBrains/RustRover/bin/rustrover > /dev/null 2>&1 >/dev/null 2>&1 &"
 alias dbeaver="nohup dbeaver > /dev/null 2>&1 >/dev/null 2>&1 &"
 alias dg="nohup /opt/JetBrains/DataGrip/bin/datagrip > /dev/null 2>&1 >/dev/null 2>&1 &"
 alias gitkraken="nohup /opt/gitkraken/gitkraken > /dev/null 2>&1 >/dev/null 2>&1 &"

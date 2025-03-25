@@ -62,6 +62,7 @@ source ~/vim/plugins/shfmt.vim
 source ~/vim/plugins/surround.vim
 source ~/vim/plugins/nnn/plugin/nnn.vim
 source ~/vim/plugins/gildas-s-plugins.vim
+source ~/vim/plugins/autocmd-custom.vim
 
 " Install missing plugins when opening Vim
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -223,7 +224,7 @@ autocmd InsertLeave * set nopaste
 "autocmd InsertEnter * set paste
 nnoremap <F2> :set invpaste paste?<CR>
 inoremap <F2> <C-o>:set invpaste paste?<CR>
-set pastetoggle=<F2>
+"nnoremap <F2> :set paste!<CR>
 
 " Toggle settings
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
@@ -289,14 +290,14 @@ xnoremap <C-DOWN> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
 set undofile
 set undolevels=1000
-set undodir=/home/gildas/.vim/undodir
+set undodir=$HOME/.vim/undodir
 
 " Activer les fichiers de sauvegarde
 set backup
-set backupdir=/home/gildas/.vim/backup//
+set backupdir=$HOME/.vim/backup//
 
-" Activer les fichiers temporaires
-set directory=/home/gildas/.vim/swap//
+" Activer les fichiers temporaires (swap)
+set directory=$HOME/.vim/swap//
 
 " Autocommands for folding and encoding
 augroup vimrc
@@ -305,11 +306,22 @@ augroup vimrc
     autocmd BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
 
+
 " Directory and session settings
 set autochdir
 set sessionoptions-=buffers
 set sessionoptions-=curdir
 set sessionoptions+=sesdir,globals
+
+set textwidth=78
+set wrapmargin=0
+set wrap
+set spell
+set spelllang=fr,en
+set fileencodings=ucs-bom,utf-8,latin1
+
+set tags=./tags,tags;/
+set autochdir
 
 
 ""=  : (re)indent the text on the current line or on the area selected (SUPER)

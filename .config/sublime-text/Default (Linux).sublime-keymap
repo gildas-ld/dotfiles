@@ -81,22 +81,22 @@
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": false
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+k",
       "ctrl+c"
     ]
   },
   {
-    "command": "toggle_terminus_panel",
     "args": {
       "cwd": "${file_path:${folder}}"
     },
+    "command": "toggle_terminus_panel",
     "keys": [
-      "ctrl+t"
+      "ctrl+shift+t"
     ]
   },
   {
@@ -123,19 +123,19 @@
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": false
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+/"
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": true
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+shift+/"
     ]
@@ -148,11 +148,11 @@
     ]
   },
   {
-    "command": "auto_complete",
     "args": {
       "default": "\t",
       "mini": true
     },
+    "command": "auto_complete",
     "context": [
       {
         "key": "auto_complete_visible",
@@ -171,20 +171,20 @@
     ]
   },
   {
-    "command": "edit_settings",
     "args": {
       "base_file": "${packages}/Default/Preferences.sublime-settings",
       "default": "// Settings in here override those in \"Default/Preferences.sublime-settings\",\n// and are overridden in turn by syntax-specific settings.\n{\n\t$0\n}\n"
     },
+    "command": "edit_settings",
     "keys": [
       "ctrl+,"
     ]
   },
   {
-    "command": "edit_shortcuts",
     "args": {
       "base_file": "${packages}/Default/Preferences.sublime-settings/Default (Linux).sublime-keymap"
     },
+    "command": "edit_shortcuts",
     "keys": [
       "ctrl+k",
       "ctrl+s"
@@ -283,20 +283,20 @@
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": false
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+k",
       "ctrl+c"
     ]
   },
   {
-    "command": "toggle_terminus_panel",
     "args": {
       "cwd": "${file_path:${folder}}"
     },
+    "command": "toggle_terminus_panel",
     "keys": [
       "ctrl+t"
     ]
@@ -325,19 +325,19 @@
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": false
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+/"
     ]
   },
   {
-    "command": "toggle_comment",
     "args": {
       "block": true
     },
+    "command": "toggle_comment",
     "keys": [
       "ctrl+shift+/"
     ]
@@ -357,10 +357,10 @@
     ]
   },
   {
-    "command": "sort_lines",
     "args": {
       "case_sensitive": true
     },
+    "command": "sort_lines",
     "key": [
       "ctrl+s",
       "ctrl+s"

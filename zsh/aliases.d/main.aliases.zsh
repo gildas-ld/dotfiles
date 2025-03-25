@@ -10,7 +10,7 @@
 # alias sqlite3=" rlwrap -a -N -c -i -p -f ~/.rlwrap/sqlite3_completions sqlite3"
 # alias sqlite=" rlwrap -a -N -c -i -p -f ~/.rlwrap/sqlite3_completions sqlite3"
 # alias n='nnn'
-# alias vsc='codium "${1:-.}"'
+# alias vsc='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  "${1:-.}" 2>/dev/null'
 # alias zcc='s=$1 ; _inke(){ inkscape --export-type=png "$1" -o "${s%.*}.png" -d ${2:-300} }; _inke'
 
 alias "?"="apropos"
@@ -30,8 +30,8 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-alias RM='rm -rfv'
 alias _='sudo '
+alias agall='ag --skip-vcs-ignores --nobreak --numbers --color -i'
 alias alg="alias | grep"
 alias an="awk_netstat.sh"
 alias bc='bc -l'
@@ -45,6 +45,7 @@ alias chmod="chmod -c -v"
 alias connect-lan="sudo nmcli device disconnect wlp0s20f3 ; sudo nmcli device connect enp0s20f0u2c4i2"
 alias count="_count() { find "${1:-.}" -type f | wc -l }; _count"
 alias cp="cp -iv"
+alias RM='rm -rfv'
 alias cp="rsync -ah --stats --info=progress2"
 alias cpdvd="touch /media/ramdisk/1.iso && dd if=/dev/sr0 of=/media/ramdisk/1.iso status=progress"
 alias ct='echo $(git rev-parse --show-toplevel)'
@@ -113,7 +114,7 @@ alias gtop='cd $(git rev-parse --show-toplevel)'
 alias h="history"
 alias header='curl -I'
 alias headerc='curl -I --compress'
-alias hg="history | grep -i "
+alias hg="fc -l 1000 | sk --tac --ansi --exact --case=ignore "
 alias inke='s=$1 ; _ink(){ inkscape --export-type=png "$1" -o "${s%.*}.png" -d ${2:-300} -w ${3:-1024} }; _ink'
 alias inr="grep -inr"
 alias ip='ip -color -all -human a'
@@ -125,9 +126,7 @@ alias m="mariadb --user=$USER"
 alias meminfo='free -m -l -t'
 alias mg="mycli -u gildas"
 alias mkdir="mkdir -pv"
-alias mkenv="_mkenv() { python3 -m venv venv && source ./venv/bin/activate && echo $VIRTUAL_ENV }; _mkenv"
 alias mksri='s=$1 ; _mksri(){ cat "$1" | openssl dgst -sha${2:-512} -binary | openssl enc -base64 -A | strings }; _mksri'
-alias mkvenv="_mkenv() { python3 -m venv venv && source ./venv/bin/activate && echo $VIRTUAL_ENV }; _mkenv"
 alias mnt="mount | grep -E '^/dev' | column -t"
 alias mse='_mse(){ mariadb-dump --user=$USER --routines --add-drop-database --add-drop-table --add-drop-trigger --add-locks --disable-keys --create-options --single-transaction -i "$1" >| "${1}_$(date +'%Y_%m_%d__%T').sql" }; _mse'
 alias msql="mariadb -u $DB_USER -p$DB_PASS --database $DB_DEFAULT"
@@ -137,9 +136,10 @@ alias nb='npm run build'
 alias nd='npm run dev'
 alias nf="_nf(){ npx prettier --write --ignore-unknown --insert-pragma  ${1:-$PWD} }; _nf"
 alias ni='npm install'
+alias n='nnn -e'
 alias nid='npm install --dev'
-alias n='nnn'
-alias nn='nnn'
+alias nn='nnn -e'
+alias nnn='nnn -e'
 alias nomnom='killall'
 alias nr="grep -nri"
 alias nri="grep -nri"
@@ -151,7 +151,6 @@ alias p="ps aux | grep -i --color=auto"
 alias tree="tree -FC --charset=ascii"
 alias path='echo -e ${PATH//:/\\n}'
 alias pbc="php bin/console"
-alias pc="pwd -P | xclip -selection clipboard"
 alias pdate="date +"%Y-%m-%d__%s""
 alias phpcbf="~/.config/composer/vendor/bin/phpcbf"
 alias phpcs="~/.config/composer/vendor/bin/phpcs"
@@ -169,18 +168,26 @@ alias psMem='ps aux --sort -%mem'
 alias pwd="pwd -P"
 alias pym="python3 manage.py"
 alias raf='rm -rf '
+alias rclone='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t1='rclone -P --transfers=2 --checkers=4 --multi-thread-streams=1 --multi-thread-cutoff=100M --multi-thread-chunk-size=16M --buffer-size=32M --stats=2s --stats-one-line --drive-chunk-size=32M'
+alias rclone_t2='rclone -P --transfers=4 --checkers=8 --multi-thread-streams=2 --multi-thread-cutoff=50M --multi-thread-chunk-size=32M --buffer-size=64M --stats=2s --stats-one-line --drive-chunk-size=64M'
+alias rclone_t3='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t4='rclone -P --transfers=16 --checkers=32 --multi-thread-streams=6 --multi-thread-cutoff=15M --multi-thread-chunk-size=128M --buffer-size=512M --stats=2s --stats-one-line --drive-chunk-size=512M'
+alias rclone_t5="rclone -P --transfers=32 --checkers=64 --multi-thread-streams=8 --multi-thread-cutoff=10M --multi-thread-chunk-size=256M --buffer-size=1024M --stats=2s --stats-one-line --drive-chunk-size=1024M"
 alias reboot="systemctl reboot -i"
 alias redshift='gammastep'
 alias resign="!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i (; }; re"
+alias rmlint='rmlint -T "all" -g -p'
 alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete'
 alias rsync-update='rsync -avu'
 alias rsync="rsync -ah --stats --info=progress2"
+alias rsyncn="rsync -ah --numeric-ids --stats --info=progress2"
+alias rsyncnd="rsync -ah --numeric-ids --delete-during --stats --info=progress2"
 alias rzsh="source ${ZDOTDIR:-$HOME}/.zshrc"
 alias s="sudo -s"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias sen="systemctl enable"
-alias senv="_senv() { source ./venv/bin/activate && echo $VIRTUAL_ENV }; _senv"
 alias shfmt='shfmt --write --simplify --indent 0 --space-redirects'
 alias show-top='echo $(git rev-parse --show-toplevel)'
 alias showtop='echo $(git rev-parse --show-toplevel)'
@@ -220,14 +227,13 @@ alias try="gnome-open"
 alias ts="tmux new-session -s"
 alias ui="uuidgen |  tr -d \- | tr a-z A-Z"
 alias uid="uuidgen |  tr -d \- | tr a-z A-Z"
-alias v="nvim"
 alias vim="nvim"
-alias vsc='codium --add "${1:-.}"'  # Add folder(s) to the last active window.
-alias vsca='codium --add "${1:-.}"' # Add folder(s) to the last active window.
-alias vscie="codium --install-extension"
-alias vscn='codium --new-window "${1:-.}"'   # Force to open a new window
-alias vscr='codium --reuse-window "${1:-.}"' # Force to open a file or folder in an already opened window
-alias vsg='codium --goto "${1:-.}"'          # file:line[:character]> Open a file at the path on the specified line and character position.
+alias vsc='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --add "${1:-.}" 2>/dev/null'  # Add folder(s) to the last active window.
+alias vsca='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --add "${1:-.}" 2>/dev/null' # Add folder(s) to the last active window.
+alias vscie="codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --install-extension 2>/dev/null"
+alias vscn='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --new-window "${1:-.}" 2>/dev/null'   # Force to open a new window
+alias vscr='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --reuse-window "${1:-.}" 2>/dev/null' # Force to open a file or folder in an already opened window
+alias vsg='codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland  --goto "${1:-.}" 2>/dev/null'          # file:line[:character]> Open a file at the path on the specified line and character position.
 alias watchdir="watch -n .5 ls -la"
 alias watchsize="watch -n .5 du -h –max-depth=1"
 alias watchtail="watch -n .5 tail -n 20"
@@ -241,3 +247,22 @@ alias yt-dlp="yt-dlp -f 'bv*[height<=2000]+ba/b' --add-metadata --merge-output-f
 alias zcc='s=$1 ; _zcc(){ gcc -Wall -Wextra -pedantic -fno-common -fno-builtin "$1" -o main }; _zcc'
 alias zh="fc -l -d -D"
 alias zz='z -t'
+alias black="sudo /usr/bin/black"
+alias vu="uv"
+alias uvrp="uv run python"
+alias uvr="uv run "
+alias minicom='minicom -c on '
+alias tar='tar -p --acls --xattrs '
+alias esp_get='source /opt/esp-idf/export.sh'
+alias esp_idf='source /opt/esp-idf/export.sh'
+alias get_idf='source /opt/esp-idf/export.sh'
+alias idf_get='source /opt/esp-idf/export.sh'
+alias qrencode="qrencode -m2 -s 1 -t ANSIUTF8 "
+alias kf="ktlint -F "
+
+
+# find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$'
+# find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$' -print0 | parallel -0 -P $(nproc) rm -rfv
+# find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea)$' -print0 | parallel -0 -P $(nproc) rm -rfv
+# alias uv="sudo chown -R gildas: $PWD && uv"
+# alias vu="sudo chown -R gildas: $PWD && uv"

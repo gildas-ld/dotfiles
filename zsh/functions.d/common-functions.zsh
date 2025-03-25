@@ -127,7 +127,7 @@ function killps() {          # kill by process name
 # END Process/system related functions :          |
 #-------------------------------------------------#
 alias se=simple-extract
-f() {
+find_() {
 	find . -iname "*${1:-''}*" -print 2> /dev/null
 }
 
@@ -216,10 +216,13 @@ function vimjump() {
 alias less='less -imJMW'
 alias ducks='du -cks * | sort -rn | head -15'
 
-clint() {
-	clang-format -i --verbose --style="{BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 2, TabWidth: 2 }" "$@"
-	# find . \( -iname "*.h" -o -iname "*.cpp" -o -iname "*.c" \) -exec clang-format -i --verbose --style=GNU {} +
+# xargs -0 clang-format -i --verbose -- style="{\
+function clint {
+  find "${1:-$PWD}" -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" -o -name "*.ino" \) -print0 | xargs -0 clang-format -i --verbose \
+    -style="{BasedOnStyle: llvm, UseTab: Always, IndentWidth: 8, TabWidth: 8, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false}"
 }
+
+
 
 tea-timer() {
 	s=${1:-2}
@@ -234,3 +237,40 @@ update-timezone() {
 get-timezone() {
 	printf '%s' "$(curl --no-progress-meter --fail https://ipapi.co/timezone)"
 }
+pc() {
+	# Get the absolute physical path (resolving symlinks)
+	current_path=$(pwd -P)
+
+	# Detect Wayland session and test for wl-copy
+	if [ -n "$WAYLAND_DISPLAY" ] && command -v wl-copy > /dev/null 2>&1; then
+		echo -n "$current_path" | wl-copy
+		return 0
+
+	# Detect X11 session and test for xclip
+	elif [ -n "$DISPLAY" ] && command -v xclip > /dev/null 2>&1; then
+		echo -n "$current_path" | xclip -selection clipboard
+		return 0
+
+	# Fallback: test for pbcopy (e.g. on macOS)
+	elif command -v pbcopy > /dev/null 2>&1; then
+		echo -n "$current_path" | pbcopy
+		return 0
+
+	# If no suitable clipboard utility is found
+	else
+		echo "No supported clipboard utility found for the current graphical session." >&2
+		return 1
+	fi
+}
+function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@; }
+
+_gitignoreio_get_command_list() {
+	curl -sL https://www.toptal.com/developers/gitignore/api/list | tr "," "\n"
+}
+
+_gitignoreio() {
+	compset -P '*,'
+	compadd -S '' $(_gitignoreio_get_command_list)
+}
+
+compdef _gitignoreio gi

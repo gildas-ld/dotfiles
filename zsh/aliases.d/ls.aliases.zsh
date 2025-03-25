@@ -10,7 +10,6 @@ alias lfz='ls -lAhrt | fzf '
 alias lm="ls -lAh -F -G --color=auto  "
 alias lr='ls -tRFh'
 alias lrt='ls -1Fcrt'
-alias ls="ls -lAhltr -F -G --color=auto  "
 alias sl="ls"
 alias lsArth='ls -lArth'
 alias lsarth='ls -larth'

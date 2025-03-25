@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+
 NC="\033[0m"
 BOLD="\033[1m"
 UNDERLINE="\033[4m"
@@ -24,14 +26,12 @@ LYELLOW="\033[0;93m"
 alias i="brew install"
 alias l="ls -lAh -F -G --color=auto "
 alias lm="ls -lAh -F -G --color=auto "
-alias ls="ls -lAhltr -F -G --color=auto "
+alias ls="exa -l -a -h -F --group-directories-first -t accessed "
+alias sl="ls "
 alias lsf='ls -lArth -F -G --color=auto '
 alias maj="time brew outdated -v ; brew update && brew upgrade && brew upgrade --cask --greedy ; brew cleanup --prune=14 "
-alias mù="shutdown -h now"
-alias mùù="shutdown -r now"
 alias myip="ipconfig getifaddr en0"
 alias open='open "${1:-.}"'
-alias pc="pwd -P | pbcopy"
 alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --info=progress2 --delete'
 alias rsync-update='rsync -avu --info=progress2'

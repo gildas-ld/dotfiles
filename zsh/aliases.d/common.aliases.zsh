@@ -97,8 +97,8 @@ alias ll='ls -l' #long list
 alias lm="ls -lAh -F -G --color=auto --time=atime --time-style=+'%d %b%Y %H:%M'"
 alias lr='ls -tRFh' #sorted by date,recursive,show type,human readable
 alias lrt='ls -1Fcrt'
-alias ls="ls -lAh -F -G --color=auto --time=mtime --time-style=+'%d %b%Y %H:%M'"
-alias ls="ls -lAhltr -F -G --color=auto --time=atime --time-style=+'%d %b%Y %H:%M'"
+alias ls='exa -l -a -h -F --group-directories-first -t accessed'
+alias sl='ls'
 alias lsArth="ls -lArth"
 alias lsa="ls -lArth -F -G --color=auto --time-style=+'%d %b%Y %H:%M'"
 alias lsarth="ls -larth"
@@ -107,7 +107,7 @@ alias lsn='ls -1'   #A column contains name of files and directories
 alias lt='ls -ltFh' #long list,sorted by date,show type,human readable
 alias mv='mv -iv'
 alias ntpd="ntpd -u ntp:ntp"
-alias o='xdg-open'
+# alias o='xdg-open'
 alias p='ps aux | grep -i --color=auto'
 alias psby_cpu='ps -eo pcpu,pmem,stat,user,pid,ppid,args | sort -k 1  | cut -c -90'
 alias psby_cpuusage='ps aux | sort -n -k 3'
@@ -134,6 +134,7 @@ alias t='tail -f'
 alias tree='tree -a -I .git --dirsfirst'
 alias unexport='unset'
 alias utc='env TZ=UTC date'
+alias vline='function _vline() { vim +$2 $1; }; _vline'
 alias vi=$EDITOR; compdef vi=vim
 alias vv="${EDITOR} -N -u NONE"; compdef vv=vim
 alias wish="which"
@@ -146,7 +147,7 @@ tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 tmpf() { "$(mktemp -t "${1:-tmp}.XXXXXXXXXX")" }
 
 for cmd in chmod chown; do
-    alias $cmd="$cmd --changes"
+    alias $cmd="sudo $cmd --changes"
 done
 
 for cmd in rm rename; do

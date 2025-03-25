@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 
 alias apts='pacman -Ss'
+alias grepd="grep -i removed /var/log/pacman.log | perl -pe 's/(?<=\d{2})T(?=\d{2})/ à /p'| perl -pe 's/:\d{2}\+(.*?)\d{4}//p' | grep -e 'removed'"
 alias grepi="grep -i installed /var/log/pacman.log | perl -pe 's/(?<=\d{2})T(?=\d{2})/ à /p'| perl -pe 's/:\d{2}\+(.*?)\d{4}//p' | grep -e 'installed'"
 alias grepo="grep -i upgraded /var/log/pacman.log | perl -pe 's/(?<=\d{2})T(?=\d{2})/ à /p'| perl -pe 's/:\d{2}\+(.*?)\d{4}//p' | grep -e 'upgraded'"
 alias i='sudo pacman -Syu --overwrite '\''*'\'

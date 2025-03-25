@@ -1,0 +1,133 @@
+*gcommands.txt*               Cheatsheet complète des commandes 'g'                      *gcommands*
+
+==============================================================================
+INTRODUCTION                                                               *gcommands-intro*
+
+Cette page documente les commandes de Vim commençant par {g}.
+Utiliser :help gcommands pour revenir ici.
+
+Index rapide:
+    |gcommands-navigation|
+    |gcommands-case|
+    |gcommands-format|
+    |gcommands-search|
+    |gcommands-info|
+    |gcommands-edit|
+    |gcommands-files|
+    |gcommands-motions-examples|
+    |gcommands-bonus|
+
+==============================================================================
+NAVIGATION ÉCRAN ET MOTS                                            *gcommands-navigation*
+
+gg              Aller au début du fichier
+g0              Aller au début de la ligne écran (display)
+g^              Aller au 1er non-blanc de la ligne écran
+g$              Aller à la fin de la ligne écran
+ge              Aller à la fin du mot précédent
+gE              Idem, mots incluant la ponctuation
+g;              Aller à la dernière position modifiée
+g,              Aller à la position modifiée précédente
+
+==============================================================================
+TRANSFORMATION DE CASSE                                                    *gcommands-case*
+
+gU{motion}      Mettre en MAJUSCULES la zone visée
+gu{motion}      Mettre en minuscules la zone visée
+g~{motion}      Inverser la casse de la zone visée
+
+Exemples:
+    gUw         Mettre le mot suivant en MAJUSCULES
+    gU$         Mettre jusqu’à fin de ligne en MAJUSCULES
+    gU}         Mettre jusqu’à fin de paragraphe en MAJUSCULES
+    guap        Mettre le paragraphe en minuscules
+    g~iw        Inverser la casse du mot sous le curseur
+    g~G         Inverser la casse jusqu’à la fin du fichier
+    gUgg        Mettre en MAJUSCULES jusqu’au début du fichier
+
+==============================================================================
+FORMATAGE                                                                  *gcommands-format*
+
+gq{motion}      Reformater selon 'textwidth'
+gw{motion}      Reformater sans déplacer le curseur
+
+Exemples:
+    gqip        Reformater le paragraphe interne
+    gqap        Reformater le paragraphe (avec saut de ligne)
+    gqj         Reformater la ligne courante + la suivante
+    gwap        Reformater le paragraphe sans déplacer le curseur
+
+==============================================================================
+RECHERCHE ET SÉLECTION                                                 *gcommands-search*
+
+gn              Sélectionner l’occurrence suivante du dernier motif recherché
+gN              Sélectionner l’occurrence précédente
+g*              Rechercher le “mot” sous le curseur (partiel) vers l’avant
+g#              Idem vers l’arrière
+
+Astuce:
+    Après /motif, utiliser gn puis c/., d/., y/. pour opérer occurrence par occurrence.
+
+==============================================================================
+INFORMATIONS ET INSPECTION                                                 *gcommands-info*
+
+g<C-g>          Afficher compte lignes/mots/caractères de la sélection
+ga              Afficher code ASCII/Unicode du caractère sous le curseur
+g8              Afficher l’octet sous le curseur en hexadécimal
+
+==============================================================================
+ÉDITION / TRANSFORMATION                                              *gcommands-edit*
+
+gy{motion}      Copier vers le registre 0 (n’écrase pas le registre par défaut)
+gJ              Joindre lignes sans ajouter d’espace
+g?{motion}      Appliquer ROT13 (chiffrer/déchiffrer)
+
+Exemples:
+    gy$         Copier jusqu’à fin de ligne vers registre 0
+    gyiw        Copier le mot vers registre 0
+    g?ap        ROT13 sur le paragraphe
+
+==============================================================================
+FICHIERS ET OUVERTURE                                                     *gcommands-files*
+
+gf              Ouvrir le fichier dont le nom est sous le curseur
+
+Notes:
+    Utiliser :set path+=** et :set suffixesadd=.ext pour améliorer gf.
+    Avec netrw ou des LSPs, gf peut sauter dans les imports/includes.
+
+==============================================================================
+COMBINAISONS AVEC {motion}                                    *gcommands-motions-examples*
+
+{motion} peut être: w, e, b, $, 0, gg, G, }, {, ip, ap, i), a), i], a], i}, a}, etc.
+
+Exemples utiles:
+    gU$         MAJUSCULES jusqu’à fin de ligne
+    gu}         minuscules jusqu’à fin de paragraphe
+    g~iw        inverser casse du mot
+    gq3ap       reformater 3 paragraphes
+    gyi)        copier intérieur de parenthèses vers registre 0
+    g?ip        ROT13 sur paragraphe interne
+
+==============================================================================
+BONUS ET RACCORCIS                                                     *gcommands-bonus*
+
+g&              Répéter le dernier :s sur toutes les lignes
+g@{reg}         Exécuter macro {reg} sur une zone Visuel-{motion}
+
+Mappings suggérés:
+>
+    " Open the cheatsheet quickly
+    nnoremap <F9> :help gcommands<CR>
+<
+Commandes suggérées:
+>
+    " Open the cheatsheet via :GCheat
+    command! GCheat help gcommands
+<
+Voir aussi:
+    |:help index| |:help word-motions| |:help text-objects| |:help g_CTRL-G| |:help gq|
+    |:help gn| |:help gf| |:help registers| |:help v_g_CTRL-A|
+
+==============================================================================
+FIN                                                                         *gcommands-end*

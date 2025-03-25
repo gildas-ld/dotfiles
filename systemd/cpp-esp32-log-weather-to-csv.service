@@ -1,0 +1,36 @@
+[Unit]
+Description=Service pour exécuter Serial reader log weather au démarrage
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/gildas/side-projects/cpp-esp32-log-weather-to-csv/rust_serial_to_csv.bin /dev/ttyACM0 /home/gildas/side-projects/cpp-esp32-log-weather-to-csv/output.csv
+WorkingDirectory=/home/gildas/side-projects/cpp-esp32-log-weather-to-csv/
+
+Restart=on-failure
+RestartSec=5
+
+User=root
+
+# Env et debuggage
+Environment=RUST_BACKTRACE=1
+Environment=RUST_LOG=info
+
+# Journal
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=serial-reader
+
+# Eviter les kills silencieux
+TimeoutStopSec=10s
+OOMPolicy=continue
+
+[Install]
+WantedBy=multi-user.target
+
+# Journaux du boot
+# journalctl -b -u cpp-esp32-log-weather-to-csv
+# systemctl daemon-reexec ; systemctl daemon-reload
+# systemctl is-system-running
+# systemctl enable --now cpp-esp32-log-weather-to-csv.service
+# systemctl status cpp-esp32-log-weather-to-csv

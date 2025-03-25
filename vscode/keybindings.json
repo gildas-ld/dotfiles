@@ -457,5 +457,23 @@
   {
     "command": "editor.unfoldAll",
     "key": "ctrl+k ctrl+h"
+  },
+  {
+    "command": "editor.action.reindentselectedlines",
+    "key": "ctrl+i ctrl+s"
+  },
+  {
+    "command": "editor.action.reindentlines",
+    "key": "ctrl+i ctrl+l"
+  },
+  {
+    "args": "Format Kotlin with ktlint",
+    "command": "workbench.action.tasks.runTask",
+    "key": "ctrl+k ctrl+f",
+    "when": "editorLangId == kotlin"
+  },
+  {
+    "command": "git.revealInExplorer",
+    "key": "ctrl+shift+b"
   }
 ]

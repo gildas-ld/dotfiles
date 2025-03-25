@@ -1,5 +1,6 @@
 {
   "adaptive_dividers": true,
+  "always_prompt_for_file_reload": false,
   "always_show_minimap_viewport": false,
   "animation_enabled": false,
   "auto_complete_commit_on_tab": false,
@@ -64,14 +65,16 @@
   ],
   "font_face": "",
   "font_options": "subpixel_antialias",
-  "font_size": 13,
+  "font_size": 11,
   "goto_anything_exclude_gitignore": true,
   "gutter": true,
   "hardware_acceleration": "opengl",
   "highlight_line": true,
   "highlight_modified_tabs": true,
+  "hot_exit": "disabled",
+  "hot_exit_projects": false,
   "ignored_packages": [
-    "Vintage"
+    "Vintage",
   ],
   "index_exclude_gitignore": false,
   "index_files": true,
@@ -81,7 +84,9 @@
   "move_to_limit_on_up_down": true,
   "open_files_in_new_window": false,
   "overlay_scroll_bars": "enabled",
-  "remember_layout": false,
+  "reload_file_on_change": true,
+  "remember_layout": true,
+  "remember_workspace": true,
   "rulers": [
     [
       80,
@@ -99,5 +104,6 @@
   "trim_only_modified_white_space": false,
   "trim_trailing_white_space_on_save": "all",
   "update_check": false,
-  "word_wrap": true
+  "update_system_recent_files": true,
+  "word_wrap": true,
 }

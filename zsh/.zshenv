@@ -90,7 +90,7 @@ export LESS_TERMCAP_us=$(printf '\33[01;32m')
 export PAGER='less -imMWR'
 export QT_STYLE_OVERRIDE=adwaita-dark
 export REPORTTIME=16
-export SAVEHIST=4096
+export SAVEHIST=8192
 export SHELL_SESSIONS_DISABLE=1
 export TERM='xterm-256color'
 export TIMEFMT=$'\t \e[32m%J\e[0m\ntime: \e[34m%U user;\e[0m \e[33m%S system;\e[0m \e[31m%E real;\e[0m\n\e[36m%P cpu;\e[0m total disk \e[35m%K KB;\e[0m max RSS \e[31m%M KB\e[0m\n\t '
@@ -107,12 +107,18 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZSH="$HOME/.oh-my-zsh"
 export ZSHZ_CASE=smart
 export ZSHZ_ECHO=1
-  
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export __NV_PRIME_RENDER_OFFLOAD=1
+# export __VK_LAYER_NV_optimus=NVIDIA_only
+# export DRI_PRIME=1
+
 # Android et Java paths
 export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12674087
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
 # 26.1.10909125
-export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export NDK_VERSION=29.0.13113456
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -124,4 +130,18 @@ if test -f "$HOME/.zshcolors"; then
 fi
 
 
+export PATH="/home/gildas/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
+export STUDIO_JDK=/usr/lib/jvm/java-17-openjdk
+export MINIO_CI=on
+export MINIO_PROMPT=off 
+export DOCKER_BUILDKIT=1
+
+export STARSHIP_CACHE=~/.starship/cach
+export LM_LICENCE_FILE=/home/gildas/.altera.quartus/quartus2_lic.dat
+# eval "$(starship init zsh)"
+
+# source /opt/esp-idf/export.sh
+
+# . /home/gildas/export-esp.sh
+# . "$HOME/.cargo/env"
