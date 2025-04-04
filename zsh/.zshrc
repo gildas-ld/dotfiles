@@ -100,8 +100,8 @@ export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export PATH="${HOME}/.config/composer/vendor/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
-# fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
- 
+fastfetch -c $HOME/.config/fastfetch/config-v2.jsonc
+
 source <(fzf --zsh)
 
 # debug (find alias ls=)
