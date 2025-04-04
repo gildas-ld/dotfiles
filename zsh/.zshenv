@@ -107,6 +107,10 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZSH="$HOME/.oh-my-zsh"
 export ZSHZ_CASE=smart
 export ZSHZ_ECHO=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __VK_LAYER_NV_optimus=NVIDIA_only
+export DRI_PRIME=1
   
 # Android et Java paths
 export ANDROID_HOME=$HOME/Android/Sdk
