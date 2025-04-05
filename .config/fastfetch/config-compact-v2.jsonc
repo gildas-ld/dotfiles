@@ -1,15 +1,12 @@
- {
+{
 	"logo": {
-		//"source": "~/.config/fastfetch/nixos.png",
-		//"type": "kitty-direct",
-		"height": 15,
-		"width": 30,
 		"padding": {
-			"top": 1
-		}
+			"top": 2
+		},
+		"type": "none"
 	},
 	"display": {
-		"separator": " ➜  "
+		"separator": " -> "
 	},
 	"modules": [
 		"break",
@@ -33,7 +30,6 @@
 			"key": " └  ",
 			"keyColor": "31",
 		},
-		"break",
 		{
 			"type": "wm",
 			"key": " DE/WM",
@@ -64,7 +60,6 @@
 			"key": " └  ",
 			"keyColor": "32",
 		},
-		"break",
 		{
 			"type": "host",
 			"format": "{2}",
@@ -104,7 +99,6 @@
 			"compactType": "original-with-refresh-rate",
 			"keyColor": "33",
 		},
-		"break",
 		"break",
 	]
 }

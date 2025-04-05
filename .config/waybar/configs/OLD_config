@@ -240,7 +240,7 @@
   },
   "battery": {
     "interval": 3,
-    "bat": "BAT1",
+    "bat": "BAT0",
     "design-capacity": true,
     "states": {
       "warning": 45,

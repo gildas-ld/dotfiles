@@ -23,29 +23,25 @@ weather_icons = {
 }
 
 # Get current location based on IP address
-def get_location():
-    response = requests.get("https://ipinfo.io")
-    data = response.json()
-    loc = data["loc"].split(",")
-    return float(loc[0]), float(loc[1])
-  
+ 
 # Get latitude and longitude
-latitude, longitude = get_location()
-
+latitude =  48.8577668
+longitude =  2.3393457
+# https://weather.com/fr-FR/weather/today/l/48.8577668,2.3393457
 # Open-Meteo API endpoint
-url = f"https://weather.com/en-PH/weather/today/l/{latitude},{longitude}"
+url = f"https://weather.com/fr-FR/weather/today/l/{latitude},{longitude}"
 
 # manual location_id 
 # NOTE: if you want to add manually, make sure you disable def get_location above
 # to get your own location_id, go to https://weather.com & search your location.
 # once you choose your location, you can see the location_id in the URL(64 chars long hex string)
-# like this: https://weather.com/en-PH/weather/today/l/bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200
-#location_id = "bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200"  # TODO
+# like this: https://weather.com/fr-FR/weather/today/l/2f34be5f34b0c83c2910dcdec33b0c6fdb04e154cb80e251d02cd52097bf2c9c
+location_id = "2f34be5f34b0c83c2910dcdec33b0c6fdb04e154cb80e251d02cd52097bf2c9c"  # TODO
 
 # NOTE to change to deg F, change the URL to your preffered location after weather.com
 # Default is English-Philippines with Busan, South Korea as location_id
 # get html page
-#url = "https://weather.com/en-PH/weather/today/l/" + location_id
+url = "https://weather.com/fr-FR/weather/today/l/" + location_id
 
 html_data = PyQuery(url=url)
 
@@ -86,7 +82,10 @@ temp_max = (
 temp_min_max = f"  {temp_min}\t\t  {temp_max}"
 
 # wind speed
-wind_speed = html_data("span[data-testid='Wind']").text().split("\n")[1]
+# test = html_data("span[data-testid='Wind']").text().split("\n")[0]
+# print(test)
+# exit(0)
+wind_speed = html_data("span[data-testid='Wind']").text().split("\n")[0]
 wind_text = f"  {wind_speed}"
 
 # humidity
