@@ -173,11 +173,11 @@
     "editor.fastScrollSensitivity": 1.8,
     "editor.folding": true, // gutter - paddingu
     // Controls the font family.
-    "editor.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
-    "editor.fontLigatures": false,
+    "editor.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
     // Controls the font size in pixels.
     "editor.fontSize": 16,
-    "editor.fontVariations": false,
+    "editor.fontVariations": true,
     "editor.fontWeight": "normal",
     // "editor.fontFamily": "Consolas, Consolas, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, monospace",
     // "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'", // false || false
@@ -191,7 +191,7 @@
     "editor.hover.delay": 400,
     "editor.hover.enabled": true,
     "editor.inlayHints.enabled": "on",
-    "editor.inlayHints.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "editor.inlayHints.fontFamily": "FiraCode Nerd Font, IBMPlexMono, monospace, 'Droid Sans Fallback'",
     "editor.inlineSuggest.enabled": true,
     "editor.insertSpaces": false,
     "editor.lineDecorationsWidth": 0, // undocumented // gutter - padding
@@ -270,13 +270,21 @@
         "*.jsx": "${capture}.js",
         "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
-        "tsconfig.json": "tsconfig.*.json"
+        "package.jsonl": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "tsconfig.jsonl": "tsconfig.*.jsonl"
     },
     "explorer.openEditors.sortOrder": "alphabetical",
     "extensions.autoUpdate": true,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
+        ".djlintrc": "jsonl",
+        ".env": "properties",
+        ".env.example": "properties",
+        ".env.local": "properties",
+        ".env.new": "properties",
+        ".env.production": "properties",
+        ".htaccess": "ruby",
+        ".tmux.conf.local": "properties",
         "*.cf": "lua",
         "*.cnf": "properties",
         "*.css": "css",
@@ -285,7 +293,8 @@
         "*.gz": "dot",
         "*.html": "html",
         "*.js": "javascript",
-        "*.json": "jsonc",
+        "*.json": "jsonl",
+        "*.jsonl": "jsonc",
         "*.kt": "kotlin",
         "*.md": "markdown",
         "*.muttrc": "python",
@@ -295,27 +304,21 @@
         "*.plantuml": "lua",
         "*.pro": "shellscript",
         "*.psql": "sql",
-        "*.sublime-keymap": "json",
-        "*.sublime-settings": "json",
+        "*.sublime-keymap": "jsonl",
+        "*.sublime-settings": "jsonl",
         "*.template": "jsonc",
         "*.wikitext": "wikitext",
         "*.xml": "html",
         "*.yaml": "yaml",
         "*.yml": "yaml",
-        ".djlintrc": "json",
-        ".env": "properties",
-        ".env.example": "properties",
-        ".env.local": "properties",
-        ".env.new": "properties",
-        ".env.production": "properties",
-        ".htaccess": "ruby",
-        ".tmux.conf.local": "properties",
-        "LICENSE": "markdown",
-        "README": "markdown",
-        "README.md": "markdown",
         "config": "jsonc",
         "env-example": "properties",
-        "neomuttrc": "python"
+        "LICENSE": "markdown",
+        "Modules": "jsonl",
+        "ModulesCustom": "jsonl",
+        "neomuttrc": "python",
+        "README": "markdown",
+        "README.md": "markdown"
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1,
@@ -324,6 +327,8 @@
     //"editor.trimAutoWhitespace": false,
     "files.eol": "\n",
     "files.exclude": {
+        ".git/": false,
+        ".next/": false,
         "**/.DS_Store": false,
         "**/.idea": false,
         "**/.sql": false,
@@ -336,8 +341,6 @@
         "**/staticfiles/": false,
         "**/uploads/": false,
         "**/venv/": false,
-        ".git/": false,
-        ".next/": false,
         "wp-admin/": false,
         "wp-config.*": false,
         "wp-includes/": false,
@@ -523,12 +526,12 @@
     // "workbench.activityBar.visible": false, // gutter - padding
     "scss.showErrors": true,
     "search.exclude": {
-        "**/*.code-search": true,
         "**/.build": true,
         "**/.gh-pages": true,
         "**/.git": true,
         "**/.next": true,
         "**/.sql": true,
+        "**/*.code-search": true,
         "**/bower_components": true,
         "**/build": true,
         "**/coverage": true,
@@ -553,9 +556,9 @@
         "output"
     ],
     "shellcheck.ignorePatterns": {
+        "**/.git/*.sh": true,
         "**/*.zsh": true,
         "**/*.zsh*": true,
-        "**/.git/*.sh": true,
         "**/folder/**/*.sh": true
     },
     "shellcheck.run": "onType",
@@ -588,47 +591,14 @@
         "javascript:S106": {
             "level": "off"
         },
-        "javascript:S1066": {
-            "level": "on"
-        },
-        "javascript:S1067": {
-            "level": "on"
-        },
         "javascript:S109": {
-            "level": "off"
-        },
-        "javascript:S1105": {
-            "level": "on"
-        },
-        "javascript:S1110": {
-            "level": "on"
-        },
-        "javascript:S1116": {
-            "level": "on"
-        },
-        "javascript:S1117": {
-            "level": "on"
-        },
-        "javascript:S1128": {
             "level": "off"
         },
         "javascript:S113": {
             "level": "on"
         },
-        "javascript:S1131": {
-            "level": "off"
-        },
-        "javascript:S1154": {
-            "level": "on"
-        },
         "javascript:S117": {
             "level": "on"
-        },
-        "javascript:S1172": {
-            "level": "off"
-        },
-        "javascript:S1192": {
-            "level": "off"
         },
         "javascript:S121": {
             "level": "off"
@@ -656,6 +626,45 @@
         },
         "javascript:S139": {
             "level": "on"
+        },
+        "javascript:S881": {
+            "level": "on"
+        },
+        "javascript:S909": {
+            "level": "on"
+        },
+        "javascript:S1066": {
+            "level": "on"
+        },
+        "javascript:S1067": {
+            "level": "on"
+        },
+        "javascript:S1105": {
+            "level": "on"
+        },
+        "javascript:S1110": {
+            "level": "on"
+        },
+        "javascript:S1116": {
+            "level": "on"
+        },
+        "javascript:S1117": {
+            "level": "on"
+        },
+        "javascript:S1128": {
+            "level": "off"
+        },
+        "javascript:S1131": {
+            "level": "off"
+        },
+        "javascript:S1154": {
+            "level": "on"
+        },
+        "javascript:S1172": {
+            "level": "off"
+        },
+        "javascript:S1192": {
+            "level": "off"
         },
         "javascript:S1438": {
             "level": "off"
@@ -822,12 +831,6 @@
         "javascript:S6582": {
             "level": "off"
         },
-        "javascript:S881": {
-            "level": "on"
-        },
-        "javascript:S909": {
-            "level": "on"
-        },
         "php:P1009": {
             "level": "off"
         },
@@ -837,13 +840,13 @@
         "php:S103": {
             "level": "off"
         },
+        "php:S125": {
+            "level": "off"
+        },
         "php:S1131": {
             "level": "off"
         },
         "php:S1192": {
-            "level": "off"
-        },
-        "php:S125": {
             "level": "off"
         },
         "php:S6600": {
@@ -873,46 +876,13 @@
         "typescript:S106": {
             "level": "off"
         },
-        "typescript:S1066": {
-            "level": "on"
-        },
-        "typescript:S1067": {
-            "level": "on"
-        },
         "typescript:S109": {
-            "level": "off"
-        },
-        "typescript:S1105": {
-            "level": "on"
-        },
-        "typescript:S1110": {
-            "level": "on"
-        },
-        "typescript:S1116": {
-            "level": "on"
-        },
-        "typescript:S1117": {
-            "level": "on"
-        },
-        "typescript:S1128": {
             "level": "off"
         },
         "typescript:S113": {
             "level": "off"
         },
-        "typescript:S1131": {
-            "level": "off"
-        },
-        "typescript:S1154": {
-            "level": "on"
-        },
         "typescript:S117": {
-            "level": "on"
-        },
-        "typescript:S1172": {
-            "level": "on"
-        },
-        "typescript:S1192": {
             "level": "on"
         },
         "typescript:S121": {
@@ -941,6 +911,45 @@
         },
         "typescript:S139": {
             "level": "off"
+        },
+        "typescript:S881": {
+            "level": "on"
+        },
+        "typescript:S909": {
+            "level": "on"
+        },
+        "typescript:S1066": {
+            "level": "on"
+        },
+        "typescript:S1067": {
+            "level": "on"
+        },
+        "typescript:S1105": {
+            "level": "on"
+        },
+        "typescript:S1110": {
+            "level": "on"
+        },
+        "typescript:S1116": {
+            "level": "on"
+        },
+        "typescript:S1117": {
+            "level": "on"
+        },
+        "typescript:S1128": {
+            "level": "off"
+        },
+        "typescript:S1131": {
+            "level": "off"
+        },
+        "typescript:S1154": {
+            "level": "on"
+        },
+        "typescript:S1172": {
+            "level": "on"
+        },
+        "typescript:S1192": {
+            "level": "on"
         },
         "typescript:S1438": {
             "level": "off"
@@ -1112,12 +1121,6 @@
         },
         "typescript:S6844": {
             "level": "off"
-        },
-        "typescript:S881": {
-            "level": "on"
-        },
-        "typescript:S909": {
-            "level": "on"
         }
     },
     "sonarlint.trace.server": "off",
@@ -1138,7 +1141,7 @@
     "telemetry.enableTelemetry": false,
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "terminal.integrated.fontFamily": "IBMPlexMono, monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.mouseWheelScrollSensitivity": 1.1,
     "terminal.integrated.tabStopWidth": 4,

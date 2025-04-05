@@ -115,7 +115,8 @@ update_submodules() {
 
 # Helper: link config directories
 link_config_dirs() {
-	for cfg in ags alacritty aria2 btop cava fastfetch fish gammastep htop hypr kitty qt5ct qt6ct rofi swappy sway swayidle swaync wallust waybar wlogout wofi xfce4 yt-dlp Kvantum Thunar; do
+	for cfg in alacritty aria2 btop fastfetch fish gammastep htop kitty rofi swappy waybar wofi yt-dlp; do
+		# for cfg in ags alacritty aria2 btop cava fastfetch fish gammastep htop hypr kitty qt5ct qt6ct rofi swappy sway swayidle swaync wallust waybar wlogout wofi xfce4 yt-dlp Kvantum Thunar; do
 		link "$DOTFILES/.config/$cfg" "$HOME/.config/$cfg"
 	done
 }
