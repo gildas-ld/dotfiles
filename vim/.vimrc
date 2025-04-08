@@ -62,6 +62,7 @@ source ~/vim/plugins/shfmt.vim
 source ~/vim/plugins/surround.vim
 source ~/vim/plugins/nnn/plugin/nnn.vim
 source ~/vim/plugins/gildas-s-plugins.vim
+source ~/vim/plugins/autocmd-custom.vim
 
 " Install missing plugins when opening Vim
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -304,6 +305,7 @@ augroup vimrc
     autocmd BufReadPre * setlocal foldmethod=indent
     autocmd BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
+
 
 " Directory and session settings
 set autochdir
