@@ -49,8 +49,12 @@ plugins=(
 	zsh-completions
 	zsh-history-substring-search
 	zsh-interactive-cd
-	zsh-z
+	# fasd
+	# zsh-z
 )
+
+# eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install )"
+
 
 # Aliases & Fonctions
 for f in ~/zsh/{aliases.d,functions.d}/**/*; do
@@ -80,7 +84,7 @@ else
 		/usr/X11R6/bin
 
 	fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-	for plugin in zsh-syntax-highlighting zsh-autosuggestions zsh-z zsh-history-substring-search zsh-autopair; do
+	for plugin in fasd-init zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search zsh-autopair; do
 		source $HOME/dotfiles/zsh/plugins.d/$plugin/$plugin.plugin.zsh
 	done
 fi
@@ -100,6 +104,7 @@ export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export PATH="${HOME}/.config/composer/vendor/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
+neofetch --off --disable shell de gpu wm wmtheme theme icons
 
 # debug (find alias ls=)
 # zsh -ixc : 2>&1 | grepls=

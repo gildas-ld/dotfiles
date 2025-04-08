@@ -137,9 +137,10 @@ alias nb='npm run build'
 alias nd='npm run dev'
 alias nf="_nf(){ npx prettier --write --ignore-unknown --insert-pragma  ${1:-$PWD} }; _nf"
 alias ni='npm install'
+alias n='nnn -e'
 alias nid='npm install --dev'
-alias n='nnn'
-alias nn='nnn'
+alias nn='nnn -e'
+alias nnn='nnn -e'
 alias nomnom='killall'
 alias nr="grep -nri"
 alias nri="grep -nri"
@@ -169,10 +170,16 @@ alias psMem='ps aux --sort -%mem'
 alias pwd="pwd -P"
 alias pym="python3 manage.py"
 alias raf='rm -rf '
-alias rclone="rclone -P --transfers=32 --checkers=64 --multi-thread-streams=8 --multi-thread-cutoff=10M --multi-thread-chunk-size=256M --buffer-size=1024M --stats=1s --stats-one-line --drive-chunk-size=1024M"
+alias rclone='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t1='rclone -P --transfers=2 --checkers=4 --multi-thread-streams=1 --multi-thread-cutoff=100M --multi-thread-chunk-size=16M --buffer-size=32M --stats=2s --stats-one-line --drive-chunk-size=32M'
+alias rclone_t2='rclone -P --transfers=4 --checkers=8 --multi-thread-streams=2 --multi-thread-cutoff=50M --multi-thread-chunk-size=32M --buffer-size=64M --stats=2s --stats-one-line --drive-chunk-size=64M'
+alias rclone_t3='rclone -P --transfers=8 --checkers=16 --multi-thread-streams=4 --multi-thread-cutoff=20M --multi-thread-chunk-size=64M --buffer-size=256M --stats=2s --stats-one-line --drive-chunk-size=256M'
+alias rclone_t4='rclone -P --transfers=16 --checkers=32 --multi-thread-streams=6 --multi-thread-cutoff=15M --multi-thread-chunk-size=128M --buffer-size=512M --stats=2s --stats-one-line --drive-chunk-size=512M'
+alias rclone_t5="rclone -P --transfers=32 --checkers=64 --multi-thread-streams=8 --multi-thread-cutoff=10M --multi-thread-chunk-size=256M --buffer-size=1024M --stats=2s --stats-one-line --drive-chunk-size=1024M"
 alias reboot="systemctl reboot -i"
 alias redshift='gammastep'
 alias resign="!re() { git rebase --exec 'git commit --amend --no-edit -n -S' -i (; }; re"
+alias rmlint='rmlint -T "all" -g -p'
 alias rsync-move='rsync -av --info=progress2 --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete'
 alias rsync-update='rsync -avu'
@@ -223,7 +230,6 @@ alias try="gnome-open"
 alias ts="tmux new-session -s"
 alias ui="uuidgen |  tr -d \- | tr a-z A-Z"
 alias uid="uuidgen |  tr -d \- | tr a-z A-Z"
-alias v="nvim"
 alias vim="nvim"
 alias vsc='codium --add "${1:-.}"'  # Add folder(s) to the last active window.
 alias vsca='codium --add "${1:-.}"' # Add folder(s) to the last active window.

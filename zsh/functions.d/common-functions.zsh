@@ -127,7 +127,7 @@ function killps() {          # kill by process name
 # END Process/system related functions :          |
 #-------------------------------------------------#
 alias se=simple-extract
-f() {
+find_() {
 	find . -iname "*${1:-''}*" -print 2> /dev/null
 }
 
