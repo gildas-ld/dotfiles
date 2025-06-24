@@ -249,6 +249,10 @@ alias zh="fc -l -d -D"
 alias zz='z -t'
 alias black="sudo /usr/bin/black"
 alias vu="uv"
+alias uvrp="uv run python"
+alias uvr="uv run "
+alias minicom='minicom -c on '
+alias tar='tar -p --acls --xattrs '
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$'
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$' -print0 | parallel -0 -P $(nproc) rm -rfv
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea)$' -print0 | parallel -0 -P $(nproc) rm -rfv
