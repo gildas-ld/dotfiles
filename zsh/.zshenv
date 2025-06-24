@@ -111,14 +111,14 @@ export ZSHZ_ECHO=1
 # export __NV_PRIME_RENDER_OFFLOAD=1
 # export __VK_LAYER_NV_optimus=NVIDIA_only
 # export DRI_PRIME=1
-  
+
 # Android et Java paths
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12674087
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
 # 26.1.10909125
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export NDK_VERSION=29.0.13113456
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -132,4 +132,16 @@ fi
 
 export PATH="/home/gildas/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
-export STUDIO_JDK=/usr/lib/jvm/java-21-openjdk
+export STUDIO_JDK=/usr/lib/jvm/java-17-openjdk
+export MINIO_CI=on
+export MINIO_PROMPT=off 
+export DOCKER_BUILDKIT=1
+
+export STARSHIP_CACHE=~/.starship/cach
+export LM_LICENCE_FILE=/home/gildas/.altera.quartus/quartus2_lic.dat
+# eval "$(starship init zsh)"
+
+# source /opt/esp-idf/export.sh
+
+# . /home/gildas/export-esp.sh
+# . "$HOME/.cargo/env"

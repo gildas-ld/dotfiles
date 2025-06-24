@@ -1,47 +1,56 @@
 -- General editor options
 local opt = vim.opt
-opt.encoding = "utf-8"
-opt.fileformats = { "unix", "dos", "mac" }
-opt.compatible = false
-opt.guifont = "Consolas:h18"
-opt.number = true
-opt.relativenumber = true
-opt.cursorline = true
-opt.mouse = "a"
 
--- Indentation and tabs
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.autochdir = true
 opt.autoindent = true
-opt.smarttab = true
-opt.shiftround = true
+opt.backup = true
 opt.breakindent = true
+opt.clipboard = "unnamedplus"
+opt.compatible = false
 opt.copyindent = true
-
--- Folding
+opt.cursorline = true
+opt.encoding = "utf-8"
+opt.expandtab = true
+opt.fileencodings = { "ucs-bom", "utf-8", "latin1" }
+opt.fileformats = { "unix", "dos", "mac" }
+opt.foldenable = false
 opt.foldlevel = 99
 opt.foldlevelstart = 99
-opt.foldenable = false
-
--- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
+opt.guifont = "Consolas:h18"
 opt.hlsearch = true
-
--- Clipboard
-if vim.fn.has("unnamedplus") == 1 then
-	opt.clipboard = "unnamed,unnamedplus"
-end
-
--- Statusline
-opt.laststatus = 2
-opt.statusline = " ☠ %F%m%r%h%w (%{&ff}/%Y) ⚐ %y%m%r%* ❑ %n%=✎ %(%l:%c%) ⇨ %P"
-
--- Wildmenu
+opt.ignorecase = true
+opt.incsearch = true
+opt.mouse = "a"
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 5
+opt.shiftround = true
+opt.shiftwidth = 4
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.smartindent = true
+opt.smarttab = true
+opt.spell = true
+opt.spelllang = { "fr", "en" }
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.textwidth = 78
+opt.timeoutlen = 400
+opt.undofile = true
+opt.updatetime = 200
 opt.wildmenu = true
 opt.wildmode = { "list:longest", "list:full" }
+opt.wrap = false
+opt.wrapmargin = 0
+
+local data_dir = vim.fn.stdpath("data")
+opt.undodir = data_dir .. "/undodir"
+opt.backupdir = data_dir .. "/backup"
+opt.directory = data_dir .. "/swap"
+
 opt.wildignore:append({
 	"*/tmp/*",
 	"*.so",
@@ -52,29 +61,3 @@ opt.wildignore:append({
 	"*.sqlite",
 	"*node_modules/",
 })
-
--- Undo, backup, swap
-local data_dir = vim.fn.stdpath("data")
-opt.undofile = true
-opt.undodir = data_dir .. "/undodir"
-opt.backup = true
-opt.backupdir = data_dir .. "/backup"
-opt.directory = data_dir .. "/swap"
-
--- Wrap, spell, formatting
-opt.wrap = false
-opt.textwidth = 78
-opt.wrapmargin = 0
-opt.spell = true
-opt.spelllang = { "fr", "en" }
-opt.fileencodings = { "ucs-bom", "utf-8", "latin1" }
-
--- Splits
-opt.splitbelow = true
-opt.splitright = true
-
--- Sessions
-opt.autochdir = true
-opt.sessionoptions:remove("buffers")
-opt.sessionoptions:remove("curdir")
-opt.sessionoptions:append({ "sesdir", "globals" })

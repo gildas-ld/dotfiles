@@ -1,21 +1,20 @@
-vim.api.nvim_create_augroup("vimrc", { clear = true })
+local aug = vim.api.nvim_create_augroup
+local au = vim.api.nvim_create_autocmd
+local g = aug("UserAutoCmds", { clear = true })
 
--- Folding
-vim.api.nvim_create_autocmd("BufReadPre", {
-	group = "vimrc",
-	command = "setlocal foldmethod=indent",
-})
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	group = "vimrc",
+-- Update diagnostics on save
+au("BufWritePost", {
+	group = g,
 	callback = function()
-		if vim.opt_local.foldmethod:get() == "indent" then
-			vim.opt_local.foldmethod = "manual"
-		end
+		vim.diagnostic.setloclist({ open = false })
 	end,
 })
 
--- Paste mode off after leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-	group = "vimrc",
-	command = "set nopaste",
+-- Quick close for help, qf, etc.
+au("FileType", {
+	group = g,
+	pattern = { "help", "qf", "lspinfo" },
+	callback = function(ev)
+		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = ev.buf, silent = true })
+	end,
 })

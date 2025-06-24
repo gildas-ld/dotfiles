@@ -1,7 +1,6 @@
--- Ensure lazy.nvim is installed
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	-- Clone lazy.nvim if not found
 	vim.fn.system({
 		"git",
 		"clone",
@@ -11,19 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-
--- Prepend lazy.nvim to runtimepath
 vim.opt.rtp:prepend(lazypath)
 
--- Load basic settings
 require("options")
 require("keymaps")
-
--- Load plugins using lazy.nvim
-require("plugins")
-
--- Load plugin configuration
-require("plugin_config")
-
--- Load autocommands
 require("autocmds")
+require("plugins")

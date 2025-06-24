@@ -459,11 +459,21 @@
     "key": "ctrl+k ctrl+h"
   },
   {
-    "key": "ctrl+alt+[IntlBackslash]",
-    "command": "editor.action.reindentselectedlines"
+    "command": "editor.action.reindentselectedlines",
+    "key": "ctrl+i ctrl+s"
   },
   {
-    "key": "shift+[IntlBackslash] shift+[IntlBackslash]",
-    "command": "editor.action.reindentlines"
+    "command": "editor.action.reindentlines",
+    "key": "ctrl+i ctrl+l"
+  },
+  {
+    "args": "Format Kotlin with ktlint",
+    "command": "workbench.action.tasks.runTask",
+    "key": "ctrl+k ctrl+f",
+    "when": "editorLangId == kotlin"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "git.revealInExplorer"
   }
 ]

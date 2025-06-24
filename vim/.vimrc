@@ -320,6 +320,10 @@ set spell
 set spelllang=fr,en
 set fileencodings=ucs-bom,utf-8,latin1
 
+set tags=./tags,tags;/
+set autochdir
+
+
 ""=  : (re)indent the text on the current line or on the area selected (SUPER)
 ""=%  : (re)indent the current braces { ... }
 ""~  : invert case (upper->lower; lower->upper) of current character

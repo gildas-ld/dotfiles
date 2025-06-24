@@ -249,9 +249,20 @@ alias zh="fc -l -d -D"
 alias zz='z -t'
 alias black="sudo /usr/bin/black"
 alias vu="uv"
+alias uvrp="uv run python"
+alias uvr="uv run "
+alias minicom='minicom -c on '
+alias tar='tar -p --acls --xattrs '
+alias esp_get='source /opt/esp-idf/export.sh'
+alias esp_idf='source /opt/esp-idf/export.sh'
+alias get_idf='source /opt/esp-idf/export.sh'
+alias idf_get='source /opt/esp-idf/export.sh'
+alias qrencode="qrencode -m2 -s 1 -t ANSIUTF8 "
+alias kf="ktlint -F "
+
+
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$'
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea|[^/]+\.env)$' -print0 | parallel -0 -P $(nproc) rm -rfv
 # find . -type d -regextype posix-extended -regex '.*/(\.venv|venv|node_modules|\.idea)$' -print0 | parallel -0 -P $(nproc) rm -rfv
-# alias uv="sudo chown -R gildas: $PWD && uv" 
-# alias vu="sudo chown -R gildas: $PWD && uv" 
-
+# alias uv="sudo chown -R gildas: $PWD && uv"
+# alias vu="sudo chown -R gildas: $PWD && uv"

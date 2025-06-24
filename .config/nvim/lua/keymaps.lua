@@ -1,49 +1,102 @@
--- Normal mode navigation
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
--- Tab navigation
-vim.keymap.set("n", "<Tab>", ":tabnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
-vim.keymap.set("n", "<S-t>", ":tabnew<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>to", ":tabonly<CR>")
-vim.keymap.set("n", "<leader>tc", ":tabclose<CR>")
-vim.keymap.set("n", "<leader>tm", ":tabmove")
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- Save, buffers, windows
-vim.keymap.set("n", "<leader>w", ":w!<CR>")
-vim.cmd("command! W w !sudo tee % > /dev/null")
-vim.keymap.set("n", "<leader>z", ":bp<CR>")
-vim.keymap.set("n", "<leader>x", ":bn<CR>")
-vim.keymap.set("n", "<leader>c", ":bd<CR>")
-vim.keymap.set("n", "<leader>rv", ":luafile $MYVIMRC<CR>")
-vim.keymap.set("n", "<leader>ev", ":tabnew $MYVIMRC<CR>")
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+-- File
+map("n", "<leader>w", "<cmd>w<cr>", opts)
+map("n", "<leader>q", "<cmd>q<cr>", opts)
+
+-- Navigation
+map("n", "<leader>e", "<cmd>Neotree toggle left<cr>", opts)
+map("n", "<leader>E", "<cmd>Neotree reveal left<cr>", opts)
+map("n", "<C-n>", "<cmd>Neotree focus left<cr>", opts)
+map("n", "-", "<cmd>Oil<cr>", opts)
+map("n", "<leader>o", "<cmd>Oil<cr>", opts)
+map("n", "<leader>O", function()
+	local ok, oil = pcall(require, "oil")
+	if ok then
+		oil.open_float()
+	end
+end, opts)
+
+-- Telescope
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+
+-- LSP
+map("n", "gd", vim.lsp.buf.definition, opts)
+map("n", "gr", vim.lsp.buf.references, opts)
+map("n", "gi", vim.lsp.buf.implementation, opts)
+map("n", "K", vim.lsp.buf.hover, opts)
+map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 -- Paste mode
-vim.keymap.set("n", "<F2>", ":set invpaste paste?<CR>")
-vim.keymap.set("i", "<F2>", "<C-o>:set invpaste paste?<CR>")
+map("n", "<F2>", "<cmd>set invpaste paste?<cr>", opts)
+map("i", "<F2>", "<C-o><cmd>set invpaste paste?<cr>", opts)
 
 -- Escape shortcuts
-vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("i", ";;", "<Esc>")
+map("i", "jj", "<Esc>", opts)
+map("i", ";;", "<Esc>", opts)
 
 -- Move lines
-vim.cmd([[
-nnoremap <C-UP> :<C-u>silent! move-2<CR>==
-nnoremap <C-DOWN> :<C-u>silent! move+<CR>==
-xnoremap <C-UP> :<C-u>silent! '<,'>move-2<CR>gv=gv
-xnoremap <C-DOWN> :<C-u>silent! '<,'>move'>+<CR>gv=gv
-]])
+map("n", "<C-UP>", "<cmd>silent! move-2<cr>==", opts)
+map("n", "<C-DOWN>", "<cmd>silent! move+<cr>==", opts)
+map("x", "<C-UP>", "<cmd>silent! '<,'>move-2<cr>gv=gv", opts)
+map("x", "<C-DOWN>", "<cmd>silent! '<,'>move'>+<cr>gv=gv", opts)
 
 -- Insert shortcuts
-vim.cmd([[
-inoremap $1 ()<Esc>i
-inoremap $2 []<Esc>i
-inoremap $3 {}<Esc>i
-inoremap $q ''<Esc>i
-inoremap $e ""<Esc>i
-iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
-]])
+map("i", "$1", "()<Esc>i", opts)
+map("i", "$2", "[]<Esc>i", opts)
+map("i", "$3", "{}<Esc>i", opts)
+map("i", "$q", "''<Esc>i", opts)
+map("i", "$e", '""<Esc>i', opts)
+
+-- Abbreviations
+map("i", "xdate", function()
+	return vim.fn.strftime("%d/%m/%y %H:%M:%S")
+end, { expr = true, noremap = true, silent = true })
+
+-- DAP
+map("n", "<F5>", function()
+	require("dap").continue()
+end, opts)
+map("n", "<F10>", function()
+	require("dap").step_over()
+end, opts)
+map("n", "<F11>", function()
+	require("dap").step_into()
+end, opts)
+map("n", "<F12>", function()
+	require("dap").step_out()
+end, opts)
+map("n", "<leader>b", function()
+	require("dap").toggle_breakpoint()
+end, opts)
+map("n", "<leader>B", function()
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, opts)
+map("n", "<leader>du", function()
+	require("dapui").toggle()
+end, opts)
+
+-- Terminal / Serial
+map("n", "<leader>tt", "<cmd>ToggleTerm<cr>", opts)
+map("n", "<leader>ts", "<cmd>SerialMonitorToggle<cr>", opts)
+
+-- Git
+map("n", "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", opts)
+map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", opts)
+
+-- Diagnostics
+map("n", "[d", vim.diagnostic.goto_prev, opts)
+map("n", "]d", vim.diagnostic.goto_next, opts)
+map("n", "<leader>dd", vim.diagnostic.open_float, opts)
+map("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)

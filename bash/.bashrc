@@ -26,4 +26,6 @@ done
 for c in cp rm chmod chown rename; do
 	alias $c="$c -v"
 done
- 
+ export PYTHON=$(which python3)
+
+export QSYS_ROOTDIR="/home/gildas/altera/24.1std/quartus/sopc_builder/bin"
