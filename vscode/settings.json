@@ -94,6 +94,9 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true
   },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
@@ -180,6 +183,7 @@
   "docthis.inferTypesFromNames": true,
   "docthis.returnsTag": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "editor.formatOnSave": "always",
@@ -196,7 +200,8 @@
   "editor.folding": true, // gutter - paddingu
   // Controls the font family.
   // "editor.fontFamily": "Fira Code",
-  "editor.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "Fira Code Retina",
+  // "editor.fontFamily": "FiraCode Nerd Font, IBMPlexMono, monospace, 'Droid Sans Fallback'",
   "editor.fontLigatures": false,
   // Controls the font size in pixels.
   "editor.fontSize": 16,
@@ -298,6 +303,14 @@
   "extensions.autoUpdate": true,
   "extensions.ignoreRecommendations": true,
   "files.associations": {
+    ".djlintrc": "jsonl",
+    ".env": "properties",
+    ".env.example": "properties",
+    ".env.local": "properties",
+    ".env.new": "properties",
+    ".env.production": "properties",
+    ".htaccess": "ruby",
+    ".tmux.conf.local": "properties",
     "*.cf": "lua",
     "*.cnf": "properties",
     "*.css": "css",
@@ -325,22 +338,14 @@
     "*.xml": "html",
     "*.yaml": "yaml",
     "*.yml": "yaml",
-    ".djlintrc": "jsonl",
-    ".env": "properties",
-    ".env.example": "properties",
-    ".env.local": "properties",
-    ".env.new": "properties",
-    ".env.production": "properties",
-    ".htaccess": "ruby",
-    ".tmux.conf.local": "properties",
+    "config": "jsonc",
+    "env-example": "properties",
     "LICENSE": "markdown",
     "Modules": "jsonl",
     "ModulesCustom": "jsonl",
+    "neomuttrc": "python",
     "README": "markdown",
-    "README.md": "markdown",
-    "config": "jsonc",
-    "env-example": "properties",
-    "neomuttrc": "python"
+    "README.md": "markdown"
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1,
@@ -349,6 +354,8 @@
   //"editor.trimAutoWhitespace": false,
   "files.eol": "\n",
   "files.exclude": {
+    ".git/": false,
+    ".next/": false,
     "**/.DS_Store": false,
     "**/.idea": false,
     "**/.sql": false,
@@ -362,8 +369,6 @@
     "**/staticfiles/": false,
     "**/uploads/": false,
     "**/venv/": false,
-    ".git/": false,
-    ".next/": false,
     "wp-admin/": false,
     "wp-config.*": false,
     "wp-includes/": false,
@@ -371,6 +376,11 @@
   },
   "files.hotExit": "off",
   "files.insertFinalNewline": true,
+  "files.readonlyInclude": {
+    "**/.cargo/git/checkouts/**/*.rs": true,
+    "**/.cargo/registry/src/**/*.rs": true,
+    "**/lib/rustlib/src/rust/library/**/*.rs": true
+  },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   // Configure paths or glob patterns to exclude from file watching.
@@ -402,15 +412,7 @@
     "python": false,
     "scminput": false
   },
-  "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
   "go.toolsManagement.autoUpdate": true,
-  // "editor.fontFamily": "Consolas, Consolas, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, monospace",
-  // "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'", // false || false
-  // "editor.fontSize": 16,
-  // "editor.fontWeight": "normal",
-  "hot_exit_projects": true,
-  "html-css-class-completion.enableEmmetSupport": true,
   "html.format.wrapAttributes": "force-expand-multiline",
   "html.suggest.html5": true,
   "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
@@ -482,7 +484,7 @@
   "liveServer.settings.wait": 1,
   "makefile.configureOnOpen": false,
   "markdown-preview-enhanced.chromePath": "/usr/bin/chromium",
-  "markdown.preview.fontFamily": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  "markdown.preview.fontFamily": "Fira Code Retina, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
   "markdown.preview.fontSize": 16,
   "markdown.preview.typographer": true,
   "merge-conflict.autoNavigateNextConflict.enabled": true,
@@ -552,9 +554,15 @@
   // "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   "redhat.telemetry.enabled": false,
+  "remote.restoreForwardedPorts": false,
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.useLocalServer": false,
-  "remote.restoreForwardedPorts": false,
+  "rust-analyzer.diagnostics.styleLints.enable": true,
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "never",
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
   "scm.diffDecorationsGutterAction": "diff",
   "scm.diffDecorationsGutterPattern": {
     "added": true
@@ -570,12 +578,12 @@
   // "workbench.activityBar.visible": false, // gutter - padding
   "scss.showErrors": true,
   "search.exclude": {
-    "**/*.code-search": true,
     "**/.build": true,
     "**/.gh-pages": true,
     "**/.git": true,
     "**/.next": true,
     "**/.sql": true,
+    "**/*.code-search": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
@@ -600,9 +608,9 @@
     "output"
   ],
   "shellcheck.ignorePatterns": {
+    "**/.git/*.sh": true,
     "**/*.zsh": true,
     "**/*.zsh*": true,
-    "**/.git/*.sh": true,
     "**/folder/**/*.sh": true
   },
   "shellcheck.run": "onType",
@@ -635,47 +643,14 @@
     "javascript:S106": {
       "level": "off"
     },
-    "javascript:S1066": {
-      "level": "on"
-    },
-    "javascript:S1067": {
-      "level": "on"
-    },
     "javascript:S109": {
-      "level": "off"
-    },
-    "javascript:S1105": {
-      "level": "on"
-    },
-    "javascript:S1110": {
-      "level": "on"
-    },
-    "javascript:S1116": {
-      "level": "on"
-    },
-    "javascript:S1117": {
-      "level": "on"
-    },
-    "javascript:S1128": {
       "level": "off"
     },
     "javascript:S113": {
       "level": "on"
     },
-    "javascript:S1131": {
-      "level": "off"
-    },
-    "javascript:S1154": {
-      "level": "on"
-    },
     "javascript:S117": {
       "level": "on"
-    },
-    "javascript:S1172": {
-      "level": "off"
-    },
-    "javascript:S1192": {
-      "level": "off"
     },
     "javascript:S121": {
       "level": "off"
@@ -703,6 +678,45 @@
     },
     "javascript:S139": {
       "level": "on"
+    },
+    "javascript:S881": {
+      "level": "on"
+    },
+    "javascript:S909": {
+      "level": "on"
+    },
+    "javascript:S1066": {
+      "level": "on"
+    },
+    "javascript:S1067": {
+      "level": "on"
+    },
+    "javascript:S1105": {
+      "level": "on"
+    },
+    "javascript:S1110": {
+      "level": "on"
+    },
+    "javascript:S1116": {
+      "level": "on"
+    },
+    "javascript:S1117": {
+      "level": "on"
+    },
+    "javascript:S1128": {
+      "level": "off"
+    },
+    "javascript:S1131": {
+      "level": "off"
+    },
+    "javascript:S1154": {
+      "level": "on"
+    },
+    "javascript:S1172": {
+      "level": "off"
+    },
+    "javascript:S1192": {
+      "level": "off"
     },
     "javascript:S1438": {
       "level": "off"
@@ -869,12 +883,6 @@
     "javascript:S6582": {
       "level": "off"
     },
-    "javascript:S881": {
-      "level": "on"
-    },
-    "javascript:S909": {
-      "level": "on"
-    },
     "php:P1009": {
       "level": "off"
     },
@@ -884,13 +892,13 @@
     "php:S103": {
       "level": "off"
     },
+    "php:S125": {
+      "level": "off"
+    },
     "php:S1131": {
       "level": "off"
     },
     "php:S1192": {
-      "level": "off"
-    },
-    "php:S125": {
       "level": "off"
     },
     "php:S6600": {
@@ -920,46 +928,13 @@
     "typescript:S106": {
       "level": "off"
     },
-    "typescript:S1066": {
-      "level": "on"
-    },
-    "typescript:S1067": {
-      "level": "on"
-    },
     "typescript:S109": {
-      "level": "off"
-    },
-    "typescript:S1105": {
-      "level": "on"
-    },
-    "typescript:S1110": {
-      "level": "on"
-    },
-    "typescript:S1116": {
-      "level": "on"
-    },
-    "typescript:S1117": {
-      "level": "on"
-    },
-    "typescript:S1128": {
       "level": "off"
     },
     "typescript:S113": {
       "level": "off"
     },
-    "typescript:S1131": {
-      "level": "off"
-    },
-    "typescript:S1154": {
-      "level": "on"
-    },
     "typescript:S117": {
-      "level": "on"
-    },
-    "typescript:S1172": {
-      "level": "on"
-    },
-    "typescript:S1192": {
       "level": "on"
     },
     "typescript:S121": {
@@ -988,6 +963,45 @@
     },
     "typescript:S139": {
       "level": "off"
+    },
+    "typescript:S881": {
+      "level": "on"
+    },
+    "typescript:S909": {
+      "level": "on"
+    },
+    "typescript:S1066": {
+      "level": "on"
+    },
+    "typescript:S1067": {
+      "level": "on"
+    },
+    "typescript:S1105": {
+      "level": "on"
+    },
+    "typescript:S1110": {
+      "level": "on"
+    },
+    "typescript:S1116": {
+      "level": "on"
+    },
+    "typescript:S1117": {
+      "level": "on"
+    },
+    "typescript:S1128": {
+      "level": "off"
+    },
+    "typescript:S1131": {
+      "level": "off"
+    },
+    "typescript:S1154": {
+      "level": "on"
+    },
+    "typescript:S1172": {
+      "level": "on"
+    },
+    "typescript:S1192": {
+      "level": "on"
     },
     "typescript:S1438": {
       "level": "off"
@@ -1159,12 +1173,6 @@
     },
     "typescript:S6844": {
       "level": "off"
-    },
-    "typescript:S881": {
-      "level": "on"
-    },
-    "typescript:S909": {
-      "level": "on"
     }
   },
   "sonarlint.trace.server": "off",
@@ -1185,7 +1193,7 @@
   "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
+  "terminal.integrated.fontFamily": "Fira Code Retina, FiraCode Nerd Font,IBMPlexMono, monospace, 'Droid Sans Fallback'",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.mouseWheelScrollSensitivity": 1.1,
   "terminal.integrated.persistentSessionReviveProcess": "never",
@@ -1259,9 +1267,7 @@
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.labelFormat": "medium",
-  "workbench.editor.restoreViewState": false,
   "workbench.editor.scrollToSwitchTabs": true,
-  "workbench.editor.sharedViewState": true,
   "workbench.editor.showTabs": "multiple", // "multiple, single, none"
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
