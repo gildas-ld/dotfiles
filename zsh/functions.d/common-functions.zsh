@@ -216,32 +216,12 @@ function vimjump() {
 alias less='less -imJMW'
 alias ducks='du -cks * | sort -rn | head -15'
 
-clint() {
-	find "${1:-$PWD}" -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.ino" \) -print0 |
-		xargs -0 clang-format -i --verbose -- style="{\
-AlignAfterOpenBracket: true,\
-AlignEscapedNewlinesLeft: false,\
-AlignTrailingComments: { Kind: Always, OverEmptyLines: 2 },\
-AllowAllArgumentsOnNextLine: true,\
-AllowAllParametersOfDeclarationOnNextLine: false,\
-AllowShortFunctionsOnASingleLine: false,\
-AllowShortIfStatementsOnASingleLine: false,\
-AllowShortLoopsOnASingleLine: false,\
-AlwaysBreakBeforeMultilineStrings: true,\
-BasedOnStyle: LLVM,\
-BreakBeforeBinaryOperators: NonAssignment,\
-BreakBeforeBraces: Linux,\
-BreakStringLiterals: false,\
-ContinuationIndentWidth: 8,\
-IndentCaseLabels: false,\
-IndentWidth: 8,\
-Language: Cpp,\
-MaxEmptyLinesToKeep: 2,\
-SortIncludes: true,\
-SpaceAfterCStyleCast: false,\
-UseTab: Always\
-}"
+# xargs -0 clang-format -i --verbose -- style="{\
+function clint {
+  find "${1:-$PWD}" -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" -o -name "*.ino" \) -print0 | xargs -0 clang-format -i --verbose \
+    -style="{BasedOnStyle: llvm, UseTab: Always, IndentWidth: 8, TabWidth: 8, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false}"
 }
+
 
 
 tea-timer() {

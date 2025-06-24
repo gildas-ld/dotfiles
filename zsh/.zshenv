@@ -111,7 +111,7 @@ export ZSHZ_ECHO=1
 # export __NV_PRIME_RENDER_OFFLOAD=1
 # export __VK_LAYER_NV_optimus=NVIDIA_only
 # export DRI_PRIME=1
-  
+
 # Android et Java paths
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
@@ -133,3 +133,10 @@ fi
 export PATH="/home/gildas/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 export STUDIO_JDK=/usr/lib/jvm/java-21-openjdk
+export MINIO_CI=on
+export MINIO_PROMPT=off 
+export DOCKER_BUILDKIT=1
+
+# source /opt/esp-idf/export.sh
+
+# . "$HOME/.cargo/env"

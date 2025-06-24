@@ -147,7 +147,7 @@ tmpd() { cd "$(mktemp -d -t "${1:-tmp}.XXXXXXXXXX")" }
 tmpf() { "$(mktemp -t "${1:-tmp}.XXXXXXXXXX")" }
 
 for cmd in chmod chown; do
-    alias $cmd="$cmd --changes"
+    alias $cmd="sudo $cmd --changes"
 done
 
 for cmd in rm rename; do

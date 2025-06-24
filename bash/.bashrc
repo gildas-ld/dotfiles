@@ -26,4 +26,4 @@ done
 for c in cp rm chmod chown rename; do
 	alias $c="$c -v"
 done
- 
+ export PYTHON=$(which python3)
